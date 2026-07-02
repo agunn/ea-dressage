@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>EA Dressage Equipment Annex</title>
+<meta name="description" content="Searchable reference of permitted and prohibited dressage equipment — Equestrian Australia Dressage Equipment Annex.">
+<meta name="theme-color" content="#2F5D3F">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#22271F; --muted:#5E6558; --paper:#F1EFE7; --panel:#FFFFFF;
+  --line:#DDD8C9; --green:#2F5D3F; --green-deep:#24492F; --cream:#F5F1E4;
+  --ok:#1B7A45; --ok-bg:#E4F2E8; --no:#B23325; --no-bg:#F9E9E6;
+  --cond:#A87515; --cond-bg:#F7EFDB;
+  --radius:14px;
+  --display:"Fraunces",Georgia,serif;
+  --body:"Source Sans 3",-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45}
+button{font-family:inherit;cursor:pointer}
+img{display:block}
+
+/* ---------- header ---------- */
+header{background:var(--green);color:var(--cream);padding:calc(14px + env(safe-area-inset-top)) 18px 0}
+.mast{max-width:1100px;margin:0 auto}
+.mast h1{font-family:var(--display);font-weight:650;font-size:clamp(22px,4.5vw,30px);margin:0;letter-spacing:.2px}
+.mast h1 span{opacity:.75;font-weight:500}
+.mast .meta{font-size:13px;opacity:.85;margin:3px 0 12px}
+.searchwrap{max-width:1100px;margin:0 auto;padding-bottom:14px}
+.searchbox{display:flex;align-items:center;gap:10px;background:#fff;border-radius:12px;padding:11px 14px;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.searchbox svg{flex:none;opacity:.5}
+.searchbox input{border:0;outline:0;flex:1;font-size:17px;font-family:var(--body);color:var(--ink);background:transparent;min-width:0}
+.searchbox .clear{border:0;background:#EEE9DB;border-radius:8px;padding:4px 10px;font-size:13px;font-weight:600;color:var(--muted);display:none}
+.searchbox .clear.show{display:block}
+
+/* ---------- filter bar ---------- */
+.filters{position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:1px solid var(--line);padding:10px 18px}
+.filters-inner{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:9px}
+.statusrow{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.seg{display:flex;background:#E7E3D5;border-radius:10px;padding:3px;gap:2px}
+.seg button{border:0;background:transparent;border-radius:8px;padding:6px 12px;font-size:13.5px;font-weight:600;color:var(--muted);white-space:nowrap}
+.seg button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.seg button .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px}
+.count{margin-left:auto;font-size:13px;color:var(--muted);font-weight:600}
+.secrow{display:flex;flex-wrap:wrap;gap:7px;padding-bottom:2px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;font-size:13.5px;font-weight:600;color:var(--muted);white-space:nowrap}
+.chip[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}
+.chip.policy{border-style:dashed;color:var(--green)}
+
+/* ---------- grid ---------- */
+main{max-width:1100px;margin:0 auto;padding:18px 18px 60px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.grid[hidden]{display:none}
+.card{background:var(--panel);border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);text-align:left;padding:0;display:flex;flex-direction:column;transition:transform .12s ease,box-shadow .12s ease}
+.card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(34,39,31,.10)}
+.card:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+.thumb{position:relative;background:#fff;height:150px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line)}
+.thumb img{max-width:88%;max-height:126px;object-fit:contain}
+.thumb .noimg{color:var(--line);font-size:38px;font-family:var(--display)}
+.badge{position:absolute;top:9px;right:9px;font-size:11px;font-weight:700;letter-spacing:.06em;padding:4px 9px;border-radius:7px;text-transform:uppercase}
+.badge.permitted{background:var(--ok);color:#fff}
+.badge.prohibited{background:var(--no);color:#fff}
+.badge.conditional{background:var(--cond);color:#fff}
+.cbody{padding:11px 13px 13px;display:flex;flex-direction:column;gap:7px;flex:1}
+.cbody h3{margin:0;font-size:15px;line-height:1.32;font-weight:600}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto}
+.tag{font-size:11.5px;font-weight:700;padding:3px 8px;border-radius:6px}
+.tag.pen{background:var(--no-bg);color:var(--no)}
+.tag.pen.half{background:var(--cond-bg);color:var(--cond)}
+.tag.warm{background:#E4EDF5;color:#2B5B82}
+.tag.sec{background:#EEEBDF;color:var(--muted);font-weight:600}
+.empty{text-align:center;color:var(--muted);padding:70px 20px}
+
+/* ---------- tabs & rules ---------- */
+.tabs{display:flex;gap:8px;margin-bottom:9px}
+.tabs button{border:0;background:transparent;border-radius:9px;padding:7px 15px;font-size:14.5px;font-weight:700;color:var(--muted)}
+.tabs button[aria-pressed="true"]{background:var(--green);color:#fff}
+.rulecard{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;text-align:left;width:100%;display:flex;gap:12px;align-items:baseline;transition:transform .12s ease,box-shadow .12s ease}
+.rulecard:hover{transform:translateY(-1px);box-shadow:0 5px 14px rgba(34,39,31,.09)}
+.rulecard:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+.rulecard .ref{font-family:var(--display);font-weight:650;color:var(--green);font-size:16px;flex:none;min-width:44px}
+.rulecard h3{margin:0;font-size:15.5px;font-weight:600}
+.rulecard p{margin:3px 0 0;font-size:13px;color:var(--muted);line-height:1.4}
+.rulelist{display:flex;flex-direction:column;gap:10px;max-width:760px;margin:0 auto}
+.rulelist[hidden]{display:none}
+.conflict{border-left:4px solid var(--cond);background:var(--cond-bg)}
+.mbody ul{margin:8px 0;padding-left:20px}
+.mbody li{margin:7px 0}
+.rref{background:#E7EFE9;color:var(--green-deep)}
+.rulelink{color:var(--green-deep);background:#E7EFE9;padding:1px 4px;border-radius:4px;text-decoration:none;font-weight:600;cursor:pointer}
+.rule-imgs{display:flex;gap:12px;justify-content:center;padding:10px 0;flex-wrap:wrap}
+.rule-imgs figure{margin:0;text-align:center;flex:1;min-width:0;max-width:150px}
+.rule-imgs img{max-width:100%;max-height:100px;object-fit:contain;border:1px solid var(--line);border-radius:6px;padding:4px;background:#fff}
+.rule-imgs figcaption{font-size:12px;color:var(--muted);margin-top:4px}
+.rulelink:hover{background:var(--green-deep);color:#fff}
+.mback{display:inline-flex;align-items:center;gap:4px;background:none;border:1px solid var(--line);border-radius:6px;padding:4px 10px;font-size:13px;color:var(--green-deep);cursor:pointer;margin-bottom:8px}
+.mback:hover{background:#E7EFE9}
+.empty .big{font-family:var(--display);font-size:26px;margin-bottom:8px;color:var(--ink)}
+
+/* ---------- modal ---------- */
+dialog{border:0;border-radius:18px;padding:0;max-width:640px;width:calc(100% - 28px);max-height:calc(100vh - 40px);max-height:calc(100dvh - 40px);background:var(--panel);box-shadow:0 24px 70px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(24,28,22,.55);backdrop-filter:blur(2px)}
+.mhead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:18px 20px 0}
+.mhead h2{font-family:var(--display);font-weight:650;font-size:22px;line-height:1.25;margin:0}
+.close{border:0;background:#EEE9DB;border-radius:10px;width:34px;height:34px;font-size:17px;flex:none;color:var(--muted)}
+.verdict{margin:14px 20px 0;border-radius:12px;padding:11px 15px;font-weight:700;font-size:15px;display:flex;align-items:center;gap:10px}
+.verdict.permitted{background:var(--ok-bg);color:var(--ok)}
+.verdict.prohibited{background:var(--no-bg);color:var(--no)}
+.verdict.conditional{background:var(--cond-bg);color:var(--cond)}
+.verdict .mark{font-size:19px}
+.mimgs{display:flex;gap:10px;overflow-x:auto;padding:16px 20px 4px}
+.mimgs img{height:170px;max-width:none;border:1px solid var(--line);border-radius:10px;background:#fff;object-fit:contain;padding:6px}
+.mbody{padding:12px 20px 22px;font-size:15px}
+.mbody p{margin:8px 0}
+.mbody .lbl{font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin:14px 0 3px}
+.mmeta{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+footer{max-width:1100px;margin:0 auto;padding:0 18px 40px;font-size:13px;color:var(--muted)}
+footer button{border:0;background:none;color:var(--green);font-weight:700;padding:0;font-size:13px;text-decoration:underline}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (max-width:480px){
+  /* header compact */
+  header{padding-top:calc(8px + env(safe-area-inset-top))}
+  .mast h1{font-size:20px}
+  .mast .meta{font-size:11.5px;margin:2px 0 8px}
+  .searchwrap{padding-bottom:10px}
+  .searchbox{padding:9px 12px}
+  .searchbox input{font-size:16px}
+
+  /* bottom tab bar */
+  .tabs{position:fixed;bottom:0;left:0;right:0;z-index:40;background:var(--panel);border-top:1px solid var(--line);margin:0;gap:0;padding:6px env(safe-area-inset-right) calc(6px + env(safe-area-inset-bottom)) env(safe-area-inset-left);justify-content:stretch;box-shadow:0 -2px 10px rgba(0,0,0,.08)}
+  .tabs button{flex:1;border-radius:8px;padding:10px 0;font-size:14px;text-align:center}
+  .filters{padding:6px 14px}
+  .filters-inner{gap:6px;padding-top:0}
+
+  /* grid */
+  .grid{grid-template-columns:repeat(2,1fr);gap:6px}
+  .card{border-radius:10px}
+  .thumb{height:90px}.thumb img{max-height:72px}
+  .badge{top:5px;right:5px;font-size:9.5px;padding:3px 6px;border-radius:5px}
+  .cbody{padding:6px 8px 8px;gap:4px}
+  .cbody h3{font-size:12px;line-height:1.25}
+  .tags{gap:3px}
+  .tag{font-size:10px;padding:2px 5px;border-radius:4px}
+  .count{width:100%;margin-left:0;font-size:11.5px}
+
+  /* chips */
+  .secrow{gap:4px}
+  .chip{padding:4px 9px;font-size:11.5px;border-radius:6px}
+
+  /* bottom padding so content isn't hidden behind tab bar */
+  main{padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+  footer{padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+
+  /* full-screen modal */
+  dialog{max-width:100%;width:100%;max-height:100%;max-height:100dvh;border-radius:0;margin:0;height:100dvh}
+  dialog::backdrop{backdrop-filter:none}
+  .mhead{padding:calc(10px + env(safe-area-inset-top)) 16px 0;position:sticky;top:0;background:var(--panel);z-index:1;border-bottom:1px solid var(--line);padding-bottom:10px}
+  .mhead h2{font-size:18px}
+  .mbody{padding:10px 16px 22px}
+  .mimgs img{height:130px}
+  .verdict{margin:10px 16px 0}
+
+  /* seg control */
+  .seg button{padding:6px 10px;font-size:12.5px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="mast">
+    <h1>Dressage Equipment Annex <span>· Equestrian Australia</span></h1>
+    <div class="meta" id="metaline"></div>
+  </div>
+  <div class="searchwrap">
+    <div class="searchbox">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.4-3.4"/></svg>
+      <input id="q" type="search" placeholder="Search equipment… e.g. baucher, micklem, spurs" autocomplete="off" aria-label="Search equipment">
+      <button class="clear" id="clearq" aria-label="Clear search">Clear</button>
+    </div>
+  </div>
+</header>
+
+<div class="filters">
+  <div class="filters-inner">
+    <div class="tabs" role="tablist" id="tabbar">
+      <button data-tab="equipment" aria-pressed="true">Equipment</button>
+      <button data-tab="rules" aria-pressed="false">Rules</button>
+    </div>
+    <div class="statusrow">
+      <div class="seg" role="group" aria-label="Filter by status" id="statusSeg">
+        <button data-status="all" aria-pressed="true">All</button>
+        <button data-status="permitted" aria-pressed="false"><span class="dot" style="background:var(--ok)"></span>Permitted</button>
+        <button data-status="prohibited" aria-pressed="false"><span class="dot" style="background:var(--no)"></span>Prohibited</button>
+        <button data-status="conditional" aria-pressed="false"><span class="dot" style="background:var(--cond)"></span>Conditional</button>
+      </div>
+      <span class="count" id="count"></span>
+    </div>
+    <div class="secrow" id="secrow" role="group" aria-label="Filter by section"></div>
+  </div>
+</div>
+
+<main>
+  <div class="grid" id="grid"></div>
+  <div class="rulelist" id="rulelist" hidden></div>
+  <div class="empty" id="empty" hidden>
+    <div class="big">No matching equipment</div>
+    <div>Try a shorter search term, or clear the section and status filters.</div>
+  </div>
+</main>
+
+<footer>
+  <p><strong id="srcline"></strong><br>
+  This reference is a working document and does not imply approval of unlisted equipment — the EA Dressage Rules provide the governing guidelines.
+  Read the <button id="policyBtn2">EADC noseband policy</button>.</p>
+</footer>
+
+<dialog id="modal">
+  <div class="mhead"><h2 id="mtitle"></h2><button class="close" id="mclose" aria-label="Close">✕</button></div>
+  <div id="mcontent"></div>
+</dialog>
+
+<script src="data.js"></script>
+<script>
+const state = { q:'', status:'all', section:0, tab:'equipment' }; // section 0 = all
+const items = EA_DATA.items;
+const rulesTopics = EA_DATA.rules||[];
+
+document.getElementById('tabbar').addEventListener('click', e=>{
+  const b = e.target.closest('button'); if(!b) return;
+  state.tab = b.dataset.tab;
+  document.querySelectorAll('#tabbar button').forEach(x=>x.setAttribute('aria-pressed', String(x===b)));
+  const eq = state.tab==='equipment';
+  document.querySelector('.statusrow .seg').style.display = eq?'flex':'none';
+  document.getElementById('secrow').style.display = eq?'flex':'none';
+  document.getElementById('grid').hidden = !eq;
+  document.getElementById('rulelist').hidden = eq;
+  render();
+});
+
+document.getElementById('metaline').textContent =
+  `${EA_DATA.meta.version} · Updated ${EA_DATA.meta.updated} · Effective ${EA_DATA.meta.effective}`;
+document.getElementById('srcline').textContent = EA_DATA.meta.source + ' — ' + EA_DATA.meta.version;
+
+/* section chips */
+const secrow = document.getElementById('secrow');
+function secChip(id, label){
+  const b = document.createElement('button');
+  b.className='chip'; b.textContent=label;
+  b.setAttribute('aria-pressed', String(state.section===id));
+  b.onclick = () => { state.section = (state.section===id?0:id); renderChips(); render(); };
+  b.dataset.sec = id;
+  return b;
+}
+function renderChips(){
+  secrow.innerHTML='';
+  secrow.appendChild(secChip(0,'All sections'));
+  EA_DATA.sections.forEach(s=>secrow.appendChild(secChip(s.id, s.id+' · '+s.name)));
+  const p = document.createElement('button');
+  p.className='chip policy'; p.textContent='ⓘ Noseband policy';
+  p.onclick = openPolicy;
+  secrow.appendChild(p);
+}
+renderChips();
+
+/* status segment */
+document.getElementById('statusSeg').addEventListener('click', e=>{
+  const b = e.target.closest('button'); if(!b) return;
+  state.status = b.dataset.status;
+  document.querySelectorAll('#statusSeg button').forEach(x=>x.setAttribute('aria-pressed', String(x===b)));
+  render();
+});
+
+/* search */
+const q = document.getElementById('q'), clearBtn = document.getElementById('clearq');
+q.addEventListener('input', ()=>{ state.q = q.value.trim().toLowerCase(); clearBtn.classList.toggle('show', !!state.q); render(); });
+clearBtn.onclick = ()=>{ q.value=''; state.q=''; clearBtn.classList.remove('show'); render(); q.focus(); };
+
+function matches(it){
+  if(state.status!=='all' && it.status!==state.status) return false;
+  if(state.section && it.section!==state.section) return false;
+  if(state.q){
+    const hay = (it.title+' '+it.description+' '+(it.notes||'')+' '+it.sectionName+' '+(it.condition||'')).toLowerCase();
+    return state.q.split(/\s+/).every(t=>hay.includes(t));
+  }
+  return true;
+}
+
+const grid = document.getElementById('grid'), empty = document.getElementById('empty'), count = document.getElementById('count');
+const rulelist = document.getElementById('rulelist');
+
+function ruleMatches(r){
+  if(!state.q) return true;
+  const hay = (r.ref+' '+r.title+' '+(r.body||[]).join(' ')).toLowerCase();
+  return state.q.split(/\s+/).every(t=>hay.includes(t));
+}
+
+function renderRules(){
+  const list = rulesTopics.filter(ruleMatches);
+  count.textContent = list.length + ' of ' + rulesTopics.length + ' topics';
+  empty.hidden = list.length>0;
+  rulelist.innerHTML='';
+  // editorial conflicts note
+  if(!state.q && (EA_DATA.conflicts||[]).length){
+    for(const c of EA_DATA.conflicts){
+      const d = document.createElement('button');
+      d.className='rulecard conflict';
+      d.innerHTML = `<span class="ref">⚠</span><span><h3>Source documents disagree: ${esc(c.topic)}</h3><p>Tap to compare the two wordings.</p></span>`;
+      d.onclick = ()=>{ mtitle.textContent='Editorial note — '+c.topic;
+        mcontent.innerHTML = `<div class="verdict conditional"><span class="mark">⚠</span>The two source documents differ on this point</div>
+        <div class="mbody"><div class="lbl">Equipment Annex</div><p>${esc(c.annex)}</p>
+        <div class="lbl">National Rules Section 5</div><p>${esc(c.rules)}</p>
+        <p style="color:var(--muted)">Both wordings are shown until the discrepancy is resolved editorially.</p></div>`;
+        modal.showModal(); };
+      rulelist.appendChild(d);
+    }
+  }
+  for(const r of list){
+    const b = document.createElement('button');
+    b.className='rulecard';
+    const preview = r.body && r.body[0] ? r.body[0].slice(0,110)+'…' : '';
+    b.innerHTML = `<span class="ref">${esc(r.ref)}</span><span><h3>${esc(r.title)}</h3><p>${esc(preview)}</p></span>`;
+    b.onclick = ()=> openRule(r);
+    rulelist.appendChild(b);
+  }
+}
+
+function linkRefs(html){
+  return html.replace(/\b(5\.(\d+)(\.\d+)*)\b/g, (m, ref) => {
+    const baseRef = ref.match(/^5\.\d+/)[0];
+    const rule = rulesTopics.find(r => r.ref === baseRef);
+    if(!rule) return m;
+    return `<a href="#" class="rulelink" data-ref="${baseRef}">${m}</a>`;
+  });
+}
+function renderRuleLine(t, imgs){
+  const e = esc(t);
+  if(!t.trim()) return '';
+  if(t === '[images]' && imgs && imgs.length) return `<div class="rule-imgs">${imgs.map(i =>
+    `<figure><img src="images/${i.src}" alt="${esc(i.cap)}"><figcaption>${esc(i.cap)}</figcaption></figure>`).join('')}</div>`;
+  if(/^\d+\.\d+/.test(t)) return `<h4 style="margin:16px 0 4px;font-size:15px">${e}</h4>`;
+  if(/^[a-z]\)\s/.test(t)) return `<div style="padding:2px 0 2px 20px;text-indent:-20px">${linkRefs(e)}</div>`;
+  if(/^\s+[ivx]+\)\s/.test(t)) return `<div style="padding:2px 0 2px 40px;text-indent:-20px">${linkRefs(e)}</div>`;
+  if(t.includes(' | ')) return `<div style="padding:4px 0;border-bottom:1px solid var(--line);font-size:13.5px">${linkRefs(e.split(' | ').join(' · '))}</div>`;
+  const cat = t.match(/^(Hat|Coat|Shirt|Stock \/ Tie|Jodhpurs\/ Breeches|Boots|Gloves):\s/);
+  if(cat) return `<div style="padding:2px 0 2px 20px"><strong>${esc(cat[1])}:</strong> ${linkRefs(esc(t.slice(cat[0].length)))}</div>`;
+  if(/^(Up to Medium|Advanced level|FEI Levels|Optional at all)/.test(t)) return `<div style="margin:12px 0 4px;font-weight:650;color:var(--green-deep)">${e}</div>`;
+  return `<p style="margin:6px 0">${linkRefs(e)}</p>`;
+}
+const ruleHistory = [];
+function openRule(r, pushHistory){
+  if(pushHistory !== false){
+    const prev = rulesTopics.find(x => mtitle.textContent.startsWith(x.ref + ' —'));
+    if(prev && prev !== r) ruleHistory.push(prev);
+  }
+  mtitle.textContent = r.ref + ' — ' + r.title;
+  const backBtn = ruleHistory.length
+    ? `<button class="mback" id="ruleback">← Back to ${esc(ruleHistory[ruleHistory.length-1].ref)}</button>` : '';
+  const imgs = r.images||[];
+  const hasInlineImgs = r.body.includes('[images]');
+  mcontent.innerHTML = `
+    <div class="mbody">
+      ${backBtn}
+      ${r.body.map(t => renderRuleLine(t, imgs)).join('')}
+      ${imgs.length && !hasInlineImgs?`<div class="rule-imgs">${imgs.map(i=>`<figure><img src="images/${i.src}" alt="${esc(i.cap)}"><figcaption>${esc(i.cap)}</figcaption></figure>`).join('')}</div>`:''}
+      <div class="mmeta"><span class="tag rref">National Rules ${esc(r.ref)}</span></div>
+    </div>`;
+  const bb = document.getElementById('ruleback');
+  if(bb) bb.onclick = () => { const prev = ruleHistory.pop(); if(prev) openRule(prev, false); };
+  mcontent.querySelectorAll('.rulelink').forEach(a => {
+    a.onclick = e => {
+      e.preventDefault();
+      const target = rulesTopics.find(r => r.ref === a.dataset.ref);
+      if(target) openRule(target);
+    };
+  });
+  modal.showModal();
+}
+
+
+function render(){
+  if(state.tab==='rules'){ renderRules(); return; }
+  const statusOrder = {permitted:0, conditional:1, prohibited:2};
+  const list = items.filter(matches).sort((a,b) =>
+    a.section - b.section
+    || statusOrder[a.status] - statusOrder[b.status]
+    || a.title.localeCompare(b.title)
+  );
+  count.textContent = list.length + ' of ' + items.length + ' items';
+  empty.hidden = list.length>0;
+  grid.innerHTML='';
+  const frag = document.createDocumentFragment();
+  for(const it of list){
+    const c = document.createElement('button');
+    c.className='card';
+    c.setAttribute('aria-label', it.title + ' — ' + it.status);
+    c.innerHTML = `
+      <div class="thumb">${it.images.length
+        ? `<img loading="lazy" src="images/${it.images[0]}" alt="">`
+        : `<div class="noimg">EA</div>`}
+        <span class="badge ${it.status}">${it.status}</span>
+      </div>
+      <div class="cbody">
+        <h3>${esc(it.title)}</h3>
+        <div class="tags">
+          ${it.penalty ? `<span class="tag pen ${it.penalty.includes('0.5')?'half':''}">${it.penalty}</span>`:''}
+          ${it.scope==='warm-up' ? `<span class="tag warm">Warm-up only</span>`:''}
+          ${it.ruleRef ? `<span class="tag rref">Rule ${it.ruleRef.split(' ')[0]}</span>`:''}
+          <span class="tag sec">§${it.section}</span>
+        </div>
+      </div>`;
+    c.onclick = ()=>openItem(it);
+    frag.appendChild(c);
+  }
+  grid.appendChild(frag);
+}
+function esc(s){ return s.replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+/* modal */
+const modal = document.getElementById('modal');
+const mtitle = document.getElementById('mtitle');
+const mcontent = document.getElementById('mcontent');
+document.getElementById('mclose').onclick = ()=>modal.close();
+modal.addEventListener('click', e=>{ if(e.target===modal) modal.close(); });
+modal.addEventListener('close', ()=>{ ruleHistory.length = 0; });
+
+const VERDICT = {
+  permitted:{mark:'✓', word:'Permitted'},
+  prohibited:{mark:'✕', word:'Not permitted'},
+  conditional:{mark:'!', word:'Conditional — check details'},
+};
+function openItem(it){
+  mtitle.textContent = it.title;
+  const v = VERDICT[it.status];
+  mcontent.innerHTML = `
+    <div class="verdict ${it.status}"><span class="mark">${v.mark}</span>${v.word}${it.penalty?` · ${it.penalty}`:''}</div>
+    ${it.images.length?`<div class="mimgs">${it.images.map(i=>`<img src="images/${i}" alt="${esc(it.title)}">`).join('')}</div>`:''}
+    <div class="mbody">
+      ${it.description?`<p>${esc(it.description)}</p>`:''}
+      ${it.notes?`<div class="lbl">Notes</div><p>${esc(it.notes)}</p>`:''}
+      ${it.condition?`<div class="lbl">Condition</div><p>${esc(it.condition)}</p>`:''}
+      ${it.scope==='warm-up'?`<div class="lbl">Scope</div><p>Warm-up arena only — not permitted in the competition arena.</p>`:''}
+      <div class="mmeta">
+        <span class="tag sec">Section ${it.section} · ${esc(it.sectionName)}</span>
+        ${it.ruleRef?`<span class="tag rref">National Rules ${esc(it.ruleRef)}</span>`:''}
+        <span class="tag sec">${it.source==='rules'?'Source: National Rules Sec 5':'Source: Equipment Annex'}</span>
+        ${it.updated?`<span class="tag sec">Ruling updated ${it.updated}</span>`:''}
+      </div>
+    </div>`;
+  modal.showModal();
+}
+
+function openPolicy(){
+  const p = EA_DATA.policy;
+  mtitle.textContent = p.title;
+  mcontent.innerHTML = `
+    <div class="verdict conditional"><span class="mark">ⓘ</span>Welfare of the horse is paramount</div>
+    <div class="mbody">
+      ${p.paragraphs.map(t=>`<p>${esc(t)}</p>`).join('')}
+      ${p.images.length?`<div class="lbl">Measuring a cavesson / flash / drop noseband</div>`:''}
+    </div>
+    ${p.images.length?`<div class="mimgs" style="padding-top:0;padding-bottom:20px">${p.images.map(i=>`<img src="images/${i}" alt="Noseband measuring illustration">`).join('')}</div>`:''}`;
+  modal.showModal();
+}
+document.getElementById('policyBtn2').onclick = openPolicy;
+
+render();
+
+/* PWA */
+if('serviceWorker' in navigator && location.protocol.startsWith('http')){
+  navigator.serviceWorker.register('sw.js').catch(()=>{});
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+.DS_Store
+
+# Agent scaffolding kit under evaluation — not part of the app
+cg-agent-kit/
+
+# EA source Word documents — kept on the NAS only, not republished
+# in the public repo (data.js already contains the extracted content)
+source-docs/
+
+# Local Claude settings
+.claude/settings.local.json

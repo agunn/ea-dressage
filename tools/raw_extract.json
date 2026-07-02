@@ -1,0 +1,1689 @@
+{
+ "items": [
+  {
+   "id": "s1-001",
+   "section": 1,
+   "sectionName": "Bit Rings & Cheeks",
+   "name": "Hanging Cheek/Baucher",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image1.png",
+    "image2.png",
+    "image3.png"
+   ]
+  },
+  {
+   "id": "s1-002",
+   "section": 1,
+   "sectionName": "Bit Rings & Cheeks",
+   "name": "Hanging cheek with cheek piece attached to the mouthpiece and a loose ring",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image5.png"
+   ]
+  },
+  {
+   "id": "s1-003",
+   "section": 1,
+   "sectionName": "Bit Rings & Cheeks",
+   "name": "Hanging Cheek with rotating (swivel) arms/mouthpiece",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image7.png"
+   ]
+  },
+  {
+   "id": "s1-004",
+   "section": 1,
+   "sectionName": "Bit Rings & Cheeks",
+   "name": "Swivel mouthpiece",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image8.png"
+   ]
+  },
+  {
+   "id": "s1-005",
+   "section": 1,
+   "sectionName": "Bit Rings & Cheeks",
+   "name": "Small Cheeks\n(There are no maximum or minimum sizes for the length of cheeks for snaffles.)",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image9.png"
+   ]
+  },
+  {
+   "id": "s1-006",
+   "section": 1,
+   "sectionName": "Bit Rings & Cheeks",
+   "name": "Eggbutt Cheeks",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image10.png"
+   ]
+  },
+  {
+   "id": "s1-007",
+   "section": 1,
+   "sectionName": "Bit Rings & Cheeks",
+   "name": "Variant of Eggbutt cheeks",
+   "notes": "INSERT VARIAT OF EGGBUTT CHEEKS",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image11.png"
+   ]
+  },
+  {
+   "id": "s1-008",
+   "section": 1,
+   "sectionName": "Bit Rings & Cheeks",
+   "name": "Loose ring",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image12.png"
+   ]
+  },
+  {
+   "id": "s1-009",
+   "section": 1,
+   "sectionName": "Bit Rings & Cheeks",
+   "name": "Loose Ring with sleeve fitted around part of the ring",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image13.png"
+   ]
+  },
+  {
+   "id": "s1-010",
+   "section": 1,
+   "sectionName": "Bit Rings & Cheeks",
+   "name": "Full cheek with extra rings",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image14.png"
+   ]
+  },
+  {
+   "id": "s1-011",
+   "section": 1,
+   "sectionName": "Bit Rings & Cheeks",
+   "name": "Shaped sleeved\nCheeks",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image15.png",
+    "image16.png"
+   ]
+  },
+  {
+   "id": "s1-012",
+   "section": 1,
+   "sectionName": "Bit Rings & Cheeks",
+   "name": "Full cheek / Fulmer /\nUpper Cheek",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image17.png",
+    "image18.png",
+    "image19.png"
+   ]
+  },
+  {
+   "id": "s1-013",
+   "section": 1,
+   "sectionName": "Bit Rings & Cheeks",
+   "name": "D-ring",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image20.png"
+   ]
+  },
+  {
+   "id": "s1-014",
+   "section": 1,
+   "sectionName": "Bit Rings & Cheeks",
+   "name": "Various gag\ncheeks",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image21.png",
+    "image22.png"
+   ]
+  },
+  {
+   "id": "s1-015",
+   "section": 1,
+   "sectionName": "Bit Rings & Cheeks",
+   "name": "Myler (or similar)\nCheeks for use\nWith hooks",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image23.png"
+   ]
+  },
+  {
+   "id": "s1-016",
+   "section": 1,
+   "sectionName": "Bit Rings & Cheeks",
+   "name": "Bevel Bit/Cheeks",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image24.png"
+   ]
+  },
+  {
+   "id": "s2-001",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Ported Unjointed bit",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image25.png"
+   ]
+  },
+  {
+   "id": "s2-002",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Mullen Mouth",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image26.png"
+   ]
+  },
+  {
+   "id": "s2-003",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Flexible MullenMouth",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image27.png",
+    "image28.png"
+   ]
+  },
+  {
+   "id": "s2-004",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Double JointedSnaffle",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image29.png",
+    "image30.png"
+   ]
+  },
+  {
+   "id": "s2-005",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Single jointedSnaffle (including lock up)",
+   "notes": "",
+   "statusText": "Lock up snaffle must not to be used with a double bridle",
+   "status": "permitted",
+   "images": [
+    "image31.png",
+    "image32.png"
+   ]
+  },
+  {
+   "id": "s2-006",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Bits with a control plate as centre link",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image33.png",
+    "image34.emf",
+    "image35.png"
+   ]
+  },
+  {
+   "id": "s2-007",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Cable doubleJointed.",
+   "notes": "",
+   "statusText": "Updated Jan 2023",
+   "status": "prohibited",
+   "images": [
+    "image36.emf"
+   ]
+  },
+  {
+   "id": "s2-008",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Cable SingleJointed",
+   "notes": "",
+   "statusText": "Updated Jan 2023",
+   "status": "prohibited",
+   "images": [
+    "image37.emf"
+   ]
+  },
+  {
+   "id": "s2-009",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Ported barrel",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image38.png"
+   ]
+  },
+  {
+   "id": "s2-010",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Rotating ported mouthpiece",
+   "notes": "A double jointed snaffle or snaffle with rotating mouthpiece may be shaped to allow tongue relief.",
+   "statusText": "Updated Apr 2023",
+   "status": "permitted",
+   "images": [
+    "image39.png"
+   ]
+  },
+  {
+   "id": "s2-011",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "B-ring snaffle",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image40.png"
+   ]
+  },
+  {
+   "id": "s2-012",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Dr Bristol",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image41.png"
+   ]
+  },
+  {
+   "id": "s2-013",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Mouthpiece withrotating middlepiece",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image42.png"
+   ]
+  },
+  {
+   "id": "s2-014",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Elliptical central joint",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image43.png"
+   ]
+  },
+  {
+   "id": "s2-015",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Turtle TopSnaffle",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image44.png",
+    "image45.png"
+   ]
+  },
+  {
+   "id": "s2-016",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Example of non-rigid bit",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image46.jpeg"
+   ]
+  },
+  {
+   "id": "s2-017",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Myler permittedSnaffles",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image47.jpeg",
+    "image48.jpeg",
+    "image49.jpeg",
+    "image50.jpeg",
+    "image51.png",
+    "image52.png",
+    "image52.jpeg",
+    "image53.jpeg",
+    "image54.jpeg",
+    "image55.jpeg",
+    "image56.png",
+    "image57.png"
+   ]
+  },
+  {
+   "id": "s2-018",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Jointed bit with ball",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image53.png"
+   ]
+  },
+  {
+   "id": "s2-019",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Pinchless Snaffle (central joint must have rounded edges)",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image54.png"
+   ]
+  },
+  {
+   "id": "s2-020",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Wavy bits are allowed as they have a smooth surface",
+   "notes": "",
+   "statusText": "Updated Jan 2023",
+   "status": "permitted",
+   "images": [
+    "image55.png"
+   ]
+  },
+  {
+   "id": "s2-021",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Beris MullenStraight bar\n(Bits must have a smooth surface.)",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image58.png"
+   ]
+  },
+  {
+   "id": "s2-022",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Mouthpiece with holes(Bits must have a smooth surface.)",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image59.png"
+   ]
+  },
+  {
+   "id": "s2-023",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Flexible MullenStraight barwith lip guards",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image60.png"
+   ]
+  },
+  {
+   "id": "s2-024",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Plastic coveredWeymouth",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image61.png"
+   ]
+  },
+  {
+   "id": "s2-025",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Curb with downward height deviation\n(The deviation may be forward but not downwards)",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image62.emf"
+   ]
+  },
+  {
+   "id": "s2-026",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Weymouth (largest and smallest ports illustrated).  (Refer to measuring bits section below)",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image63.png"
+   ]
+  },
+  {
+   "id": "s2-027",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Jointed, rotating mouthpiece on a curb\n(The rules do not allow for a jointed curb or a curb with rotation in the mouthpiece.)",
+   "notes": "",
+   "statusText": "Elimination\nUpdated Jan 2023",
+   "status": "prohibited",
+   "images": [
+    "image64.png",
+    "image65.png"
+   ]
+  },
+  {
+   "id": "s2-028",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Curb bits with a ported/tilted mouthpiece.\n(The deviation may be forward but not downwards)",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image66.png",
+    "image67.jpeg"
+   ]
+  },
+  {
+   "id": "s2-029",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Curb chain clasp\n(Curb chain hooks can be fixed or not fixed.)",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image68.png"
+   ]
+  },
+  {
+   "id": "s2-030",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Various mouthpieces not permitted",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image69.png",
+    "image70.png",
+    "image71.png",
+    "image72.jpeg",
+    "image73.jpeg",
+    "image74.jpeg",
+    "image75.jpeg",
+    "image76.jpeg",
+    "image77.jpeg"
+   ]
+  },
+  {
+   "id": "s2-031",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Bits with interference on the rings",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image78.jpeg"
+   ]
+  },
+  {
+   "id": "s2-032",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Coloured Bits",
+   "notes": "",
+   "statusText": "Minus 0.5%",
+   "status": "prohibited",
+   "images": [
+    "image79.png"
+   ]
+  },
+  {
+   "id": "s2-033",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Bit guards",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image80.png",
+    "image81.png"
+   ]
+  },
+  {
+   "id": "s2-034",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Bit clips onergonomic bridles",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image82.png"
+   ]
+  },
+  {
+   "id": "s2-035",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Measuring Bits\nfor maximum deviation (top image)\nMeasuring diameter of bits\n(bottom image)",
+   "notes": "",
+   "statusText": "Maximum height = 30mm\nMinimum width = 30mm",
+   "status": "review",
+   "images": [
+    "image83.png",
+    "image84.jpeg"
+   ]
+  },
+  {
+   "id": "s2-036",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Additions to bit\n(Bits may only be covered with rubber or latex.)",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image85.png"
+   ]
+  },
+  {
+   "id": "s2-037",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Bit Tape to cover the mouthpiece (latex or rubber)",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image86.png"
+   ]
+  },
+  {
+   "id": "s2-038",
+   "section": 2,
+   "sectionName": "Bits & Mouthpieces",
+   "name": "Bit Tape to create a bit guard",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image87.png"
+   ]
+  },
+  {
+   "id": "s3-001",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "Bridles with anatomical/paddedheadpiece",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image90.png",
+    "image91.png",
+    "image92.png",
+    "image93.png"
+   ]
+  },
+  {
+   "id": "s3-002",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "Ready to Ride bridle",
+   "notes": "Not included in the list of permitted nosebands due to the thin noseband straps which would have a different effect than a standard flat Noseband",
+   "statusText": "Elimination\nUpdated Apr 2023",
+   "status": "prohibited",
+   "images": [
+    "image94.png"
+   ]
+  },
+  {
+   "id": "s3-003",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "PS of Swedennoseband(with throat lash)",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image95.png"
+   ]
+  },
+  {
+   "id": "s3-004",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "PS of SwedenNirak(with Throat lash)",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image96.png"
+   ]
+  },
+  {
+   "id": "s3-005",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "PS Of Sweden Noseband, (with Throat Lash)",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image97.emf"
+   ]
+  },
+  {
+   "id": "s3-006",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "PS of SwedenHigh JumpBridle",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image98.emf"
+   ]
+  },
+  {
+   "id": "s3-007",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "PS of SwedenJump OffBridle",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image99.emf"
+   ]
+  },
+  {
+   "id": "s3-008",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "PS of Sweden(Elastic Concept)",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image100.emf"
+   ]
+  },
+  {
+   "id": "s3-009",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "Bridles with DRings at the Poll",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image101.emf",
+    "image102.emf"
+   ]
+  },
+  {
+   "id": "s3-010",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "Tota Comfortsystem noseband",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image103.jpeg",
+    "image104.png"
+   ]
+  },
+  {
+   "id": "s3-011",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "Noseband with metal sliding system attached to cheek piece\nExcept for buckles and padding the headstall and noseband must be entirely of leather or leather-like material.",
+   "notes": "",
+   "statusText": "Elimination\nUpdated Jan 2023",
+   "status": "prohibited",
+   "images": [
+    "image105.png"
+   ]
+  },
+  {
+   "id": "s3-012",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "Stubben Snaffle Bridle 2500 Freedom",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image106.png",
+    "image107.emf"
+   ]
+  },
+  {
+   "id": "s3-013",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "Passier Fortuna Double Bridle\n(Elastic Insert in Neckband, under Browband)",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image108.emf",
+    "image109.png"
+   ]
+  },
+  {
+   "id": "s3-014",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "Bridle with double throat lash",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image110.png"
+   ]
+  },
+  {
+   "id": "s3-015",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "Micklem Style Bridle",
+   "notes": "The upper strap can be considered as a throat lash if it is correctly fitted",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image111.png",
+    "image112.png",
+    "image113.jpeg"
+   ]
+  },
+  {
+   "id": "s3-016",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "Micklem Style Bridle",
+   "notes": "The upper strap is too low to be considered a throat lash",
+   "statusText": "Elimination\nUpdated Apr 2023",
+   "status": "prohibited",
+   "images": [
+    "image114.png"
+   ]
+  },
+  {
+   "id": "s3-017",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "Micklem Bridle with clips",
+   "notes": "no clips allowed on the Micklem bridles in ANY material as it is considered a gadget",
+   "statusText": "Elimination\nUpdated Apr 2023",
+   "status": "prohibited",
+   "images": [
+    "image115.png"
+   ]
+  },
+  {
+   "id": "s3-018",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "Monarch Bridle",
+   "notes": "Allowed with throat lash as it is a variation of the Micklem bridle.",
+   "statusText": "Updated Apr 2023",
+   "status": "permitted",
+   "images": [
+    "image116.png"
+   ]
+  },
+  {
+   "id": "s3-019",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "Quantum modified Bridle (snaffle or double)",
+   "notes": "Similar to a standard double or snaffle bridle",
+   "statusText": "Updated Apr 2023",
+   "status": "permitted",
+   "images": [
+    "image117.png",
+    "image118.png"
+   ]
+  },
+  {
+   "id": "s3-020",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "St Zaum Bridle\nMay be used with a double bridle if the lower strap of the nose band is removed.",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image119.jpeg"
+   ]
+  },
+  {
+   "id": "s3-021",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "Dyon X-FitAnatomic",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image120.png"
+   ]
+  },
+  {
+   "id": "s3-022",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "Dyon Double",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image121.png"
+   ]
+  },
+  {
+   "id": "s3-023",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "Added Padding on Bridle",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image122.emf"
+   ]
+  },
+  {
+   "id": "s3-024",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "Blinkers of any type, including wool padding on cheek piece",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image123.jpeg",
+    "image124.jpeg"
+   ]
+  },
+  {
+   "id": "s3-025",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "Double Cavesson Noseband",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image125.png"
+   ]
+  },
+  {
+   "id": "s3-026",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "Cornell Collar",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image126.jpeg"
+   ]
+  },
+  {
+   "id": "s3-027",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "Three way noseband",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image127.jpeg"
+   ]
+  },
+  {
+   "id": "s3-028",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "Elastic Reins",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image128.png"
+   ]
+  },
+  {
+   "id": "s3-029",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "Reins with hand stoppers or knotted\n(considered a gadget)",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image129.png",
+    "image130.png",
+    "image131.png"
+   ]
+  },
+  {
+   "id": "s3-030",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "Rubber, laced & notched reins",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image132.png",
+    "image133.png",
+    "image134.png"
+   ]
+  },
+  {
+   "id": "s3-031",
+   "section": 3,
+   "sectionName": "Bridles & Nosebands",
+   "name": "Clip on Reins",
+   "notes": "Clip on reins are not allowed",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image135.png"
+   ]
+  },
+  {
+   "id": "s4-001",
+   "section": 4,
+   "sectionName": "Competition Wear",
+   "name": "Jackets: Any solid colour is permitted. Wide contrast stripes and multi-coloured jackets and coats are not permitted. (Examples shown)",
+   "notes": "",
+   "statusText": "Minus 0.5%\nUpdated Jan 2023",
+   "status": "prohibited",
+   "images": [
+    "image136.png",
+    "image137.png"
+   ]
+  },
+  {
+   "id": "s4-002",
+   "section": 4,
+   "sectionName": "Competition Wear",
+   "name": "Top hatsare not permitted at any level",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image138.png"
+   ]
+  },
+  {
+   "id": "s4-003",
+   "section": 4,
+   "sectionName": "Competition Wear",
+   "name": "Mirrored Helmets\n(dark reflective helmets are permitted)",
+   "notes": "",
+   "statusText": "Minus 0.5%",
+   "status": "prohibited",
+   "images": [
+    "image139.png"
+   ]
+  },
+  {
+   "id": "s4-004",
+   "section": 4,
+   "sectionName": "Competition Wear",
+   "name": "Sleeveless Riding Jackets",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image140.jpeg",
+    "image141.jpeg",
+    "image142.png"
+   ]
+  },
+  {
+   "id": "s4-005",
+   "section": 4,
+   "sectionName": "Competition Wear",
+   "name": "Boots and gaiters may be black, brown or same colour as jacket",
+   "notes": "Any solid color to match Jacket is permitted",
+   "statusText": "Updated Jan 2023",
+   "status": "permitted",
+   "images": []
+  },
+  {
+   "id": "s4-006",
+   "section": 4,
+   "sectionName": "Competition Wear",
+   "name": "Full length laced\nboots",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image143.jpeg"
+   ]
+  },
+  {
+   "id": "s4-007",
+   "section": 4,
+   "sectionName": "Competition Wear",
+   "name": "Embossing /decoration at the top of the Top Boot only is permitted but must be in the same colour scheme as the boot. The same applies to the cantle of the saddle.",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image144.png",
+    "image145.jpeg"
+   ]
+  },
+  {
+   "id": "s4-008",
+   "section": 4,
+   "sectionName": "Competition Wear",
+   "name": "Boots can be of smooth or smooth embossed surface.  A neat and discrete zip on the outside area of the boot/chap is permitted.",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image146.jpeg",
+    "image147.png",
+    "image148.png"
+   ]
+  },
+  {
+   "id": "s4-009",
+   "section": 4,
+   "sectionName": "Competition Wear",
+   "name": "Coloured piping is permitted if it matches the piping on the Riding Jacket & or saddle",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image149.png",
+    "image150.png",
+    "image151.png"
+   ]
+  },
+  {
+   "id": "s4-010",
+   "section": 4,
+   "sectionName": "Competition Wear",
+   "name": "Large buckles at the ankle of the boot are considered a safety issue and are not allowed",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image152.jpeg",
+    "image153.png"
+   ]
+  },
+  {
+   "id": "s4-011",
+   "section": 4,
+   "sectionName": "Competition Wear",
+   "name": "Riding boots must have heels",
+   "notes": "",
+   "statusText": "",
+   "status": "review",
+   "images": [
+    "image154.png"
+   ]
+  },
+  {
+   "id": "s5-001",
+   "section": 5,
+   "sectionName": "Saddles & Stirrups",
+   "name": "*Stock Saddles\n*Western Saddles\n*Iberian Saddles\n*Endurance Saddles\nnot illustrated",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image155.png",
+    "image156.png"
+   ]
+  },
+  {
+   "id": "s5-002",
+   "section": 5,
+   "sectionName": "Saddles & Stirrups",
+   "name": "Jumping Saddles\nSide Saddles\nPARTICIPATION ONLY",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image157.png",
+    "image158.png"
+   ]
+  },
+  {
+   "id": "s5-003",
+   "section": 5,
+   "sectionName": "Saddles & Stirrups",
+   "name": "Stirrups & leathers  must be fitted to the outside saddle flap",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image159.png"
+   ]
+  },
+  {
+   "id": "s5-004",
+   "section": 5,
+   "sectionName": "Saddles & Stirrups",
+   "name": "Magnetic Stirrups",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image160.png"
+   ]
+  },
+  {
+   "id": "s5-005",
+   "section": 5,
+   "sectionName": "Saddles & Stirrups",
+   "name": "Multi coloured stirrups not permitted\nStirrups\nmust be black, silver, gold or same colour as the rider\u2019s boots",
+   "notes": "",
+   "statusText": "Minus 0.5%\nfor multi coloured stirrups",
+   "status": "prohibited",
+   "images": [
+    "image161.png"
+   ]
+  },
+  {
+   "id": "s5-006",
+   "section": 5,
+   "sectionName": "Saddles & Stirrups",
+   "name": "Velcro straps to Stirrups",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image162.png"
+   ]
+  },
+  {
+   "id": "s5-007",
+   "section": 5,
+   "sectionName": "Saddles & Stirrups",
+   "name": "Step-up Stirrups",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image163.jpeg"
+   ]
+  },
+  {
+   "id": "s5-008",
+   "section": 5,
+   "sectionName": "Saddles & Stirrups",
+   "name": "Safety Stirrups are allowed\nopen branch on the Inside or outside of the stirrup is permitted",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image164.png",
+    "image165.jpeg"
+   ]
+  },
+  {
+   "id": "s5-009",
+   "section": 5,
+   "sectionName": "Saddles & Stirrups",
+   "name": "Other examples of Safety Stirrups permitted",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image166.png",
+    "image167.png",
+    "image168.png",
+    "image169.png"
+   ]
+  },
+  {
+   "id": "s6-001",
+   "section": 6,
+   "sectionName": "Additional Equipment & Accessories",
+   "name": "Ear bonnet/hoods but, must not be attached to the noseband(no additional insulation & no ear plugs allowed)",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image170.png"
+   ]
+  },
+  {
+   "id": "s6-002",
+   "section": 6,
+   "sectionName": "Additional Equipment & Accessories",
+   "name": "Tight fitting Head cover or Titanium hoods are not permitted when horses are ridden. \u00a0They are permitted in the stables/yards & when tied to horse floats.",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image171.png",
+    "image172.png"
+   ]
+  },
+  {
+   "id": "s6-003",
+   "section": 6,
+   "sectionName": "Additional Equipment & Accessories",
+   "name": "Fly Masks",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image173.png"
+   ]
+  },
+  {
+   "id": "s6-004",
+   "section": 6,
+   "sectionName": "Additional Equipment & Accessories",
+   "name": "Nose net",
+   "notes": "",
+   "statusText": "(only permitted with an EADC exemption)",
+   "status": "prohibited",
+   "images": [
+    "image174.png"
+   ]
+  },
+  {
+   "id": "s6-005",
+   "section": 6,
+   "sectionName": "Additional Equipment & Accessories",
+   "name": "Body bandage or similar.  (Spur pad/protection)",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image175.png"
+   ]
+  },
+  {
+   "id": "s6-006",
+   "section": 6,
+   "sectionName": "Additional Equipment & Accessories",
+   "name": "Electronic devices / headsets; 1 ear piece only",
+   "notes": "",
+   "statusText": "Permitted in warm-up only",
+   "status": "prohibited",
+   "images": [
+    "image176.png",
+    "image177.png"
+   ]
+  },
+  {
+   "id": "s6-007",
+   "section": 6,
+   "sectionName": "Additional Equipment & Accessories",
+   "name": "Electronic communication devices, including mobile phones, are not permitted while riders are in the competition arena",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image178.png"
+   ]
+  },
+  {
+   "id": "s6-008",
+   "section": 6,
+   "sectionName": "Additional Equipment & Accessories",
+   "name": "Kinesiology Tape(not permitted in competition)",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image179.png"
+   ]
+  },
+  {
+   "id": "s6-009",
+   "section": 6,
+   "sectionName": "Additional Equipment & Accessories",
+   "name": "Exercise sheets",
+   "notes": "",
+   "statusText": "Although permitted in warm-up",
+   "status": "prohibited",
+   "images": [
+    "image180.png"
+   ]
+  },
+  {
+   "id": "s6-010",
+   "section": 6,
+   "sectionName": "Additional Equipment & Accessories",
+   "name": "Running Martingales are allowed in warm up only on a snaffle bridle but rein stoppers must be used",
+   "notes": "",
+   "statusText": "Although permitted in warm-up",
+   "status": "prohibited",
+   "images": [
+    "image181.png"
+   ]
+  },
+  {
+   "id": "s6-011",
+   "section": 6,
+   "sectionName": "Additional Equipment & Accessories",
+   "name": "Arabian Martingale (not allowed on grounds)",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image182.jpeg"
+   ]
+  },
+  {
+   "id": "s7-001",
+   "section": 7,
+   "sectionName": "Horse Boots & Shoes",
+   "name": "Boots or Bandages that cover the hoof",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image183.jpeg"
+   ]
+  },
+  {
+   "id": "s7-002",
+   "section": 7,
+   "sectionName": "Horse Boots & Shoes",
+   "name": "Polyurethane shoes",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image184.png",
+    "image185.png"
+   ]
+  },
+  {
+   "id": "s7-003",
+   "section": 7,
+   "sectionName": "Horse Boots & Shoes",
+   "name": "Hoof boots",
+   "notes": "",
+   "statusText": "Warm-up only",
+   "status": "prohibited",
+   "images": [
+    "image186.jpeg"
+   ]
+  },
+  {
+   "id": "s7-004",
+   "section": 7,
+   "sectionName": "Horse Boots & Shoes",
+   "name": "Nailed or Glued shoes must be clear if covers more of the hoof wall than that of a nailed shoe. Bulbs of the heel & full circumference of coronary band must be visible",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image187.png",
+    "image188.gif"
+   ]
+  },
+  {
+   "id": "s8-001",
+   "section": 8,
+   "sectionName": "Spurs",
+   "name": "Spurs with a Disc Rowel in the Vertical or Horizontal Plane (must be smooth and blunt)",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image189.jpeg",
+    "image190.png"
+   ]
+  },
+  {
+   "id": "s8-002",
+   "section": 8,
+   "sectionName": "Spurs",
+   "name": "Rowel Spurs with serrated tines, blunt or otherwise, are not permitted",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image191.jpeg",
+    "image192.png",
+    "image193.png"
+   ]
+  },
+  {
+   "id": "s8-003",
+   "section": 8,
+   "sectionName": "Spurs",
+   "name": "Swan Neck Spurs(Fitted as illustrated)",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image194.jpeg"
+   ]
+  },
+  {
+   "id": "s8-004",
+   "section": 8,
+   "sectionName": "Spurs",
+   "name": "Smart Clix Spurs with no serrated tines",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image195.png"
+   ]
+  },
+  {
+   "id": "s8-005",
+   "section": 8,
+   "sectionName": "Spurs",
+   "name": "Soft Touch Spurs",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image196.png",
+    "image197.png",
+    "image198.jpeg"
+   ]
+  },
+  {
+   "id": "s8-006",
+   "section": 8,
+   "sectionName": "Spurs",
+   "name": "Coloured Spurs (unless they match the riders boots)",
+   "notes": "",
+   "statusText": "Minus 0.5%",
+   "status": "prohibited",
+   "images": [
+    "image199.png",
+    "image200.png"
+   ]
+  },
+  {
+   "id": "s8-007",
+   "section": 8,
+   "sectionName": "Spurs",
+   "name": "Hard plastic Spurs",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image201.jpeg"
+   ]
+  },
+  {
+   "id": "s8-008",
+   "section": 8,
+   "sectionName": "Spurs",
+   "name": "Spurs without a shank",
+   "notes": "",
+   "statusText": "",
+   "status": "permitted",
+   "images": [
+    "image202.png"
+   ]
+  },
+  {
+   "id": "s8-009",
+   "section": 8,
+   "sectionName": "Spurs",
+   "name": "Spurs with side rowels",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image203.jpeg"
+   ]
+  },
+  {
+   "id": "s8-010",
+   "section": 8,
+   "sectionName": "Spurs",
+   "name": "Bent Shank on Spurs",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image204.jpeg"
+   ]
+  },
+  {
+   "id": "s8-011",
+   "section": 8,
+   "sectionName": "Spurs",
+   "name": "Spursuader Spurs/ Spurs with flat disc",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image205.jpeg"
+   ]
+  },
+  {
+   "id": "s8-012",
+   "section": 8,
+   "sectionName": "Spurs",
+   "name": "Spurs with extension at the back (e.g. FairRider)",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image206.png",
+    "image207.png"
+   ]
+  },
+  {
+   "id": "s8-013",
+   "section": 8,
+   "sectionName": "Spurs",
+   "name": "Hammer Spurs",
+   "notes": "",
+   "statusText": "Elimination",
+   "status": "prohibited",
+   "images": [
+    "image208.png"
+   ]
+  }
+ ],
+ "specials": [
+  {
+   "section": 3,
+   "text": "ALL BRIDLES MUST HAVE A THROAT LASH",
+   "images": []
+  },
+  {
+   "section": 3,
+   "text": "Equestrian Australian Dressage Committee Statement\nThe Equestrian Australian Dressage Committee (EADC) wishes to reiterate that welfare of the horse is paramount in all that it does, whether developing rules for the sport or in training of its dressage stewards and judges \u2013 an active on-going program.\nNosebands that are too tightly fitted regardless of type are never acceptable. Nosebands must never be used in such a way that they interfere with a horse\u2019s breathing. Riders failing to loosen a noseband on request from a steward or judge will be eliminated.\nNoseband checking is done by a steward. It must be possible to place at least one finger between the horse\u2019s cheek and the noseband.   See illustration below.\nNosebands can be checked prior to or after the completion of a test\nNot all nosebands are required to be checked, if a visual assessment confirms that the noseband is not too tight.\nDuring a test if the Judge believes a noseband is too tight, they must at the end of the test instruct the rider to return to the gear check. The Steward must report back to the judge after checking the noseband.\nWhen checking bridle/noseband the steward must wear two clean disposable gloves\nThe checking of the bridle/noseband must be done with the greatest caution, as some horses are very touchy and sensitive. Stewards must keep in mind that the safety and welfare of the horse and the Athlete are our highest priority and concern!\nThe execution of adjustment of equipment must be done by the rider or the groom and not the steward.\nIf the noseband is deemed too tight by a steward in warm up and is not loosened when requested a Yellow Warning Card will be issued.\nMeasuring a cavason nosebanMeasuring a cavason noseban\nMeasuring a cavason noseban\nMeasuring a cavason noseban\nMeasuring a flash or drop noseband 1Measuring a flash or drop noseband 1\nMeasuring a flash or drop noseband 1\nMeasuring a flash or drop noseband 1",
+   "images": [
+    "image88.jpeg",
+    "image89.png"
+   ]
+  }
+ ]
+}
