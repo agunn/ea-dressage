@@ -2337,7 +2337,25 @@ const EA_DATA = {
    "scope": "competition",
    "updated": null,
    "images": [
-    "image195.jpg"
+    "image195a.jpg"
+   ],
+   "source": "annex",
+   "ruleRef": null
+  },
+  {
+   "id": "s8-004b",
+   "section": 8,
+   "sectionName": "Spurs",
+   "title": "Smart Clix Spurs with serrated tines",
+   "description": "",
+   "notes": "",
+   "status": "prohibited",
+   "penalty": "Elimination",
+   "condition": null,
+   "scope": "competition",
+   "updated": null,
+   "images": [
+    "image195b.jpg"
    ],
    "source": "annex",
    "ruleRef": null

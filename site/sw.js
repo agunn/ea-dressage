@@ -1,4 +1,4 @@
-const CACHE = 'ea-equipment-v36';
+const CACHE = 'ea-equipment-v37';
 const SHELL = ['./', './index.html', './data.js', './manifest.json'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));
