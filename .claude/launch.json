@@ -1,0 +1,14 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "site",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": [
+        "-c",
+        "cd /private/tmp/claude-501/-Volumes-web-ea-dressage/a3b9950e-8bc9-43f3-a3e6-bd987dd78add/scratchpad/site-preview && exec python3 -m http.server 8901"
+      ],
+      "port": 8901
+    }
+  ]
+}
