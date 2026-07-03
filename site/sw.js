@@ -1,7 +1,24 @@
-const CACHE = 'ea-equipment-v38';
-const SHELL = ['./', './index.html', './data.js', './manifest.json'];
+const CACHE = 'ea-equipment-v39';
+const SHELL = ['./', './index.html', './data.js', './manifest.json', './icon-192.png', './icon-512.png'];
+
+// Derive the full image list from the data file so everything is available
+// offline after install (importScripts is synchronous in the SW scope).
+let IMAGES = [];
+try {
+  importScripts('./data.js');
+  const s = new Set();
+  (EA_DATA.items || []).forEach(i => (i.images || []).forEach(f => s.add('./images/' + f)));
+  (EA_DATA.rules || []).forEach(r => (r.images || []).forEach(o => s.add('./images/' + (o.src || o))));
+  (EA_DATA.galleries || []).forEach(g => (g.images || []).forEach(o => s.add('./images/' + (o.src || o))));
+  if (EA_DATA.policy && EA_DATA.policy.images) EA_DATA.policy.images.forEach(o => s.add('./images/' + (o.src || o)));
+  IMAGES = [...s];
+} catch (e) { /* shell precache still works; images fall back to on-demand caching */ }
+
 self.addEventListener('install', e => {
-  e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));
+  e.waitUntil(caches.open(CACHE).then(c =>
+    // Shell must succeed; images are best-effort so one bad file can't block install
+    c.addAll(SHELL).then(() => Promise.allSettled(IMAGES.map(u => c.add(u))))
+  ).then(() => self.skipWaiting()));
 });
 self.addEventListener('activate', e => {
   e.waitUntil(caches.keys().then(keys =>
