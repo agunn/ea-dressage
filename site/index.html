@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>EA Dressage Equipment Annex</title>
+<title>EA Dressage Equipment and Rules</title>
 <meta name="description" content="Searchable reference of permitted and prohibited dressage equipment — Equestrian Australia Dressage Equipment Annex.">
 <meta name="theme-color" content="#2F5D3F">
 <link rel="manifest" href="manifest.json">
@@ -187,7 +187,7 @@ footer button{border:0;background:none;color:var(--green);font-weight:700;paddin
 
 <header>
   <div class="mast">
-    <h1>Dressage Equipment Annex <span>· Equestrian Australia</span></h1>
+    <h1>Dressage Equipment and Rules <span>· Equestrian Australia</span></h1>
     <div class="meta" id="metaline"></div>
   </div>
   <div class="searchwrap">
@@ -231,6 +231,7 @@ footer button{border:0;background:none;color:var(--green);font-weight:700;paddin
   <p><strong id="srcline"></strong><br>
   This reference is a working document and does not imply approval of unlisted equipment — the EA Dressage Rules provide the governing guidelines.
   Read the <button id="policyBtn2">EADC noseband policy</button>.</p>
+  <p id="offline-status" hidden></p>
 </footer>
 
 <dialog id="modal">
@@ -488,6 +489,37 @@ render();
 /* PWA */
 if('serviceWorker' in navigator && location.protocol.startsWith('http')){
   navigator.serviceWorker.register('sw.js').catch(()=>{});
+}
+
+/* Offline readiness indicator: counts cached images in the footer and
+   quietly re-fetches any stragglers (the SW caches each response) */
+if('caches' in window && location.protocol.startsWith('http')){
+  const osEl = document.getElementById('offline-status');
+  const wanted = (()=>{const s=new Set();
+    EA_DATA.items.forEach(i=>(i.images||[]).forEach(f=>s.add('images/'+f)));
+    (EA_DATA.rules||[]).forEach(r=>(r.images||[]).forEach(o=>s.add('images/'+(o.src||o))));
+    (EA_DATA.galleries||[]).forEach(g=>(g.images||[]).forEach(o=>s.add('images/'+(o.src||o))));
+    if(EA_DATA.policy&&EA_DATA.policy.images)EA_DATA.policy.images.forEach(o=>s.add('images/'+(o.src||o)));
+    return [...s];})();
+  let topup=false;
+  async function offlineCheck(){
+    const missing=[];
+    for(const u of wanted){ if(!(await caches.match(u))) missing.push(u); }
+    osEl.hidden=false;
+    if(!missing.length){
+      osEl.textContent='✓ All '+wanted.length+' images downloaded — fully available offline';
+      return;
+    }
+    osEl.textContent='Downloading images for offline use… '+(wanted.length-missing.length)+' of '+wanted.length+
+      (navigator.onLine?'':' (paused — offline)');
+    if(navigator.onLine && !topup && navigator.serviceWorker.controller){
+      topup=true;
+      for(const u of missing){ try{ await fetch(u); }catch(e){ break; } }
+      topup=false;
+    }
+    setTimeout(offlineCheck, 3000);
+  }
+  offlineCheck();
 }
 </script>
 </body>
