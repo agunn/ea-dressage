@@ -1,0 +1,9 @@
+// Cloudflare Workers config: serve the static site in ./site (no worker code).
+// Used by the "npx wrangler deploy" build Cloudflare runs on each push.
+{
+  "name": "ea-dressage",
+  "compatibility_date": "2026-07-01",
+  "assets": {
+    "directory": "./site"
+  }
+}
