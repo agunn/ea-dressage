@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>EA Dressage Equipment and Rules</title>
 <meta name="description" content="Searchable reference of permitted and prohibited dressage equipment — Equestrian Australia Dressage Equipment Annex.">
-<meta name="theme-color" content="#2F5D3F">
+<meta name="theme-color" content="#002942">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -15,7 +15,7 @@
 <style>
 :root{
   --ink:#22271F; --muted:#5E6558; --paper:#F1EFE7; --panel:#FFFFFF;
-  --line:#DDD8C9; --green:#2F5D3F; --green-deep:#24492F; --cream:#F5F1E4;
+  --line:#DDD8C9; --green:#002942; --green-deep:#001D30; --cream:#F5F1E4;
   --ok:#1B7A45; --ok-bg:#E4F2E8; --no:#B23325; --no-bg:#F9E9E6;
   --cond:#A87515; --cond-bg:#F7EFDB;
   --radius:14px;
@@ -30,11 +30,15 @@ img{display:block}
 
 /* ---------- header ---------- */
 header{background:var(--green);color:var(--cream);padding:calc(14px + env(safe-area-inset-top)) 18px 0}
-.mast{max-width:1100px;margin:0 auto}
-.mast h1{font-family:var(--display);font-weight:650;font-size:clamp(22px,4.5vw,30px);margin:0;letter-spacing:.2px}
+.headrow{max-width:1100px;margin:0 auto;display:flex;align-items:stretch;gap:16px}
+.headcol{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
+.brandlogo{flex:none;height:auto;width:auto;align-self:stretch;object-fit:contain;object-position:left center}
+.brandlogo-r{object-position:right center}
+.mast{margin:0}
+.mast h1{font-family:var(--display);font-weight:650;font-size:clamp(16px,2.4vw,24px);margin:0;letter-spacing:.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .mast h1 span{opacity:.75;font-weight:500}
 .mast .meta{font-size:13px;opacity:.85;margin:3px 0 12px}
-.searchwrap{max-width:1100px;margin:0 auto;padding-bottom:14px}
+.searchwrap{margin-top:10px;padding-bottom:14px}
 .searchbox{display:flex;align-items:center;gap:10px;background:#fff;border-radius:12px;padding:11px 14px;box-shadow:0 2px 8px rgba(0,0,0,.18)}
 .searchbox svg{flex:none;opacity:.5}
 .searchbox input{border:0;outline:0;flex:1;font-size:17px;font-family:var(--body);color:var(--ink);background:transparent;min-width:0}
@@ -72,11 +76,17 @@ main{max-width:1100px;margin:0 auto;padding:18px 18px 60px}
 .badge.permitted{background:var(--ok);color:#fff}
 .badge.prohibited{background:var(--no);color:#fff}
 .badge.conditional{background:var(--cond);color:#fff}
+.badge.secnum{background:var(--green);color:#fff;letter-spacing:0}
 .imgcount{position:absolute;bottom:7px;right:8px;font-size:10.5px;font-weight:600;background:rgba(47,45,38,.6);color:#fff;padding:2px 7px;border-radius:9px;pointer-events:none}
 .cbody{padding:11px 13px 13px;display:flex;flex-direction:column;gap:7px;flex:1}
 .cbody h3{margin:0;font-size:15px;line-height:1.32;font-weight:600}
-.tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto}
+.tags{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin-top:auto}
 .tag{font-size:11.5px;font-weight:700;padding:3px 8px;border-radius:6px}
+.tag.status{color:#fff;text-transform:uppercase;letter-spacing:.04em}
+.tag.status.permitted{background:var(--ok)}
+.tag.status.prohibited{background:var(--no)}
+.tag.status.conditional{background:var(--cond)}
+.tag.penright{margin-left:auto}
 .tag.pen{background:var(--no-bg);color:var(--no)}
 .tag.pen.half{background:var(--cond-bg);color:var(--cond)}
 .tag.warm{background:#E4EDF5;color:#2B5B82}
@@ -98,15 +108,15 @@ main{max-width:1100px;margin:0 auto;padding:18px 18px 60px}
 .conflict{border-left:4px solid var(--cond);background:var(--cond-bg)}
 .mbody ul{margin:8px 0;padding-left:20px}
 .mbody li{margin:7px 0}
-.rref{background:#E7EFE9;color:var(--green-deep)}
-.rulelink{color:var(--green-deep);background:#E7EFE9;padding:1px 4px;border-radius:4px;text-decoration:none;font-weight:600;cursor:pointer}
+.rref{background:#E3EBF1;color:var(--green-deep)}
+.rulelink{color:var(--green-deep);background:#E3EBF1;padding:1px 4px;border-radius:4px;text-decoration:none;font-weight:600;cursor:pointer}
 .rule-imgs{display:flex;gap:12px;justify-content:center;padding:10px 0;flex-wrap:wrap}
 .rule-imgs figure{margin:0;text-align:center;flex:1;min-width:0;max-width:150px}
 .rule-imgs img{max-width:100%;max-height:100px;object-fit:contain;border:1px solid var(--line);border-radius:6px;padding:4px;background:#fff}
 .rule-imgs figcaption{font-size:12px;color:var(--muted);margin-top:4px}
 .rulelink:hover{background:var(--green-deep);color:#fff}
 .mback{display:inline-flex;align-items:center;gap:4px;background:none;border:1px solid var(--line);border-radius:6px;padding:4px 10px;font-size:13px;color:var(--green-deep);cursor:pointer;margin-bottom:8px}
-.mback:hover{background:#E7EFE9}
+.mback:hover{background:#E3EBF1}
 .empty .big{font-family:var(--display);font-size:26px;margin-bottom:8px;color:var(--ink)}
 
 /* ---------- modal ---------- */
@@ -191,16 +201,22 @@ footer button{border:0;background:none;color:var(--green);font-weight:700;paddin
 <body>
 
 <header>
-  <div class="mast">
-    <h1>Dressage Equipment and Rules <span>· Equestrian Australia</span></h1>
-    <div class="meta" id="metaline"></div>
-  </div>
-  <div class="searchwrap">
-    <div class="searchbox">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.4-3.4"/></svg>
-      <input id="q" type="search" placeholder="Search equipment… e.g. baucher, micklem, spurs" autocomplete="off" aria-label="Search equipment">
-      <button class="clear" id="clearq" aria-label="Clear search">Clear</button>
+  <div class="headrow">
+    <img class="brandlogo" src="images/ea-logo-white.png" alt="Equestrian Australia">
+    <div class="headcol">
+      <div class="mast">
+        <h1>Dressage Equipment and Rules <span>· Equestrian Australia</span></h1>
+        <div class="meta" id="metaline"></div>
+      </div>
+      <div class="searchwrap">
+        <div class="searchbox">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.4-3.4"/></svg>
+          <input id="q" type="search" placeholder="Search equipment… e.g. baucher, micklem, spurs" autocomplete="off" aria-label="Search equipment">
+          <button class="clear" id="clearq" aria-label="Clear search">Clear</button>
+        </div>
+      </div>
     </div>
+    <img class="brandlogo brandlogo-r" src="images/ea-dressage-logo-white.png" alt="Dressage Australia">
   </div>
 </header>
 
@@ -208,7 +224,7 @@ footer button{border:0;background:none;color:var(--green);font-weight:700;paddin
   <div class="filters-inner">
     <div class="tabs" role="tablist" id="tabbar">
       <button data-tab="equipment" aria-pressed="true">Equipment</button>
-      <button data-tab="rules" aria-pressed="false">Rules</button>
+      <button data-tab="rules" aria-pressed="false">Equipment Rules</button>
     </div>
     <div class="statusrow">
       <div class="seg" role="group" aria-label="Filter by status" id="statusSeg">
@@ -421,16 +437,16 @@ function render(){
       <div class="thumb">${it.images.length
         ? it.images.slice(0,3).map(im=>`<img loading="lazy" src="images/${im}" alt="">`).join('')
         : `<div class="noimg">EA</div>`}
-        <span class="badge ${it.status}">${it.status}</span>
+        <span class="badge secnum">§${it.section}</span>
         ${it.images.length>3?`<span class="imgcount">+${it.images.length-3}</span>`:''}
       </div>
       <div class="cbody">
         <h3>${esc(it.title)}</h3>
         <div class="tags">
-          ${it.penalty ? `<span class="tag pen ${it.penalty.includes('0.5')?'half':''}">${it.penalty}</span>`:''}
+          <span class="tag status ${it.status}">${it.status}</span>
           ${it.scope==='warm-up' ? `<span class="tag warm">Warm-up only</span>`:''}
           ${it.ruleRef ? `<span class="tag rref">Rule ${it.ruleRef.split(' ')[0]}</span>`:''}
-          <span class="tag sec">§${it.section}</span>
+          ${it.penalty ? `<span class="tag pen penright ${it.penalty.includes('0.5')?'half':''}">${it.penalty}</span>`:''}
         </div>
       </div>`;
     c.onclick = ()=>openItem(it);
