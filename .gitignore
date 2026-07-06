@@ -9,3 +9,6 @@ source-docs/
 
 # Local Claude settings
 .claude/settings.local.json
+
+# Local restore-point backups — never deploy or publish
+_restore-points/
