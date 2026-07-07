@@ -589,7 +589,7 @@ function render(){
         <h3>${esc(it.title)}</h3>
         <div class="tags">
           <span class="tag status ${it.status}">${it.status}</span>
-          ${it.scope==='warm-up' ? `<span class="tag warm">Warm-up</span>`:''}
+          ${it.scope==='warm-up' ? `<span class="tag warm">Warm-up only</span>`:''}
           <span class="tagsright">
             ${it.penalty ? `<span class="tag pen ${it.penalty.includes('0.5')?'half':''}">${it.penalty}</span>`:''}
             ${it.ruleRef ? `<span class="tag rref">Rule ${it.ruleRef.split(' ')[0]}</span>`:''}

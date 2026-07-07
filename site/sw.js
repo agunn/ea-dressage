@@ -1,4 +1,4 @@
-const CACHE = 'ea-equipment-v70';
+const CACHE = 'ea-equipment-v71';
 const SHELL = ['./', './index.html', './data.js', './manifest.json', './icon-192.png', './icon-512.png'];
 
 // Derive the full image list from the data file so everything is available
