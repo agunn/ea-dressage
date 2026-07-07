@@ -687,13 +687,13 @@ if(location.search.indexOf('debug')>-1){
   const d=document.createElement('div');
   d.style.cssText='position:fixed;top:0;left:0;right:0;z-index:999;background:#000;color:#0f0;font:12px monospace;padding:8px;white-space:pre-wrap';
   d.textContent=
-    'innerWidth: '+window.innerWidth+'  innerHeight: '+window.innerHeight+
-    '\ndevicePixelRatio: '+window.devicePixelRatio+
-    '\nscreen: '+screen.width+'x'+screen.height+
+    'layout viewport (clientWidth): '+document.documentElement.clientWidth+
+    '\ninnerWidth: '+window.innerWidth+'  visualViewport: '+(window.visualViewport?Math.round(visualViewport.width)+' @scale '+visualViewport.scale.toFixed(2):'n/a')+
+    '\nscreen: '+screen.width+'x'+screen.height+'  dpr: '+window.devicePixelRatio+
     '\npointer coarse: '+matchMedia('(pointer:coarse)').matches+
-    '\nmax-width 520 matches: '+matchMedia('(max-width:520px)').matches+
-    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+
-    '\nUA: '+navigator.userAgent.slice(0,120);
+    '\nphone layout (<=600) active: '+matchMedia('(max-width:600px)').matches+
+    '\nheader height: '+Math.round(document.querySelector('header').getBoundingClientRect().height)+'px'+
+    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v76';
   document.body.appendChild(d);
 }
 
