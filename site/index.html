@@ -174,8 +174,11 @@ footer button{border:0;background:none;color:var(--green);font-weight:700;paddin
 @media (max-width:600px){
   /* header compact */
   header{padding-top:calc(8px + env(safe-area-inset-top))}
-  .brandlogo{height:56px}
-  .headrow{gap:10px}
+  /* logos out of flow: pinned either side of the title, search spans full width */
+  .headrow{position:relative;gap:0}
+  .brandlogo{position:absolute;top:2px;left:0;height:56px}
+  .brandlogo-r{left:auto;right:0}
+  .mast{padding-left:70px;padding-right:62px}
   .mast h1{font-size:20px;white-space:normal;overflow:visible;text-overflow:clip}
   .mast .meta{font-size:11.5px;margin:2px 0 8px}
   .searchwrap{padding-bottom:10px}
@@ -715,7 +718,7 @@ if(location.search.indexOf('debug')>-1){
     '\npointer coarse: '+matchMedia('(pointer:coarse)').matches+
     '\nphone layout (<=600) active: '+matchMedia('(max-width:600px)').matches+
     '\nheader height: '+Math.round(document.querySelector('header').getBoundingClientRect().height)+'px'+
-    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v81';
+    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v82';
   document.body.appendChild(d);
 }
 
