@@ -22,6 +22,9 @@ keep it that way unless the owner asks otherwise.
   blindly rerun.
 - Bump the cache name in `site/sw.js` (`ea-equipment-vNN`) whenever content
   or code changes, or returning users will see stale cached versions.
+- When publishing, also update the "Site last updated D Month YYYY" line in
+  the footer of `site/index.html` to the publish date (it is a hand-edited
+  string, not automatic).
 
 ## Data model (site/data.js -> EA_DATA)
 - `items[]`: id, section (1–8), sectionName, title, description, notes,
