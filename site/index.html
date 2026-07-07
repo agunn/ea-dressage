@@ -691,8 +691,10 @@ if('serviceWorker' in navigator && location.protocol.startsWith('http')){
   const hadController = !!navigator.serviceWorker.controller;
   navigator.serviceWorker.register('sw.js').then(reg=>{
     // re-check for updates whenever the app is brought back to the foreground
+    // (skipped entirely while offline; any failure is silent)
     document.addEventListener('visibilitychange', ()=>{
-      if(document.visibilityState==='visible') reg.update().catch(()=>{});
+      if(document.visibilityState!=='visible' || !navigator.onLine) return;
+      try{ reg.update().catch(()=>{}); }catch(e){}
     });
   }).catch(()=>{});
   if(hadController){
@@ -718,7 +720,7 @@ if(location.search.indexOf('debug')>-1){
     '\npointer coarse: '+matchMedia('(pointer:coarse)').matches+
     '\nphone layout (<=600) active: '+matchMedia('(max-width:600px)').matches+
     '\nheader height: '+Math.round(document.querySelector('header').getBoundingClientRect().height)+'px'+
-    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v82';
+    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v83';
   document.body.appendChild(d);
 }
 
