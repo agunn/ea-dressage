@@ -682,6 +682,21 @@ if('serviceWorker' in navigator && location.protocol.startsWith('http')){
   navigator.serviceWorker.register('sw.js').catch(()=>{});
 }
 
+/* temporary device diagnostics: open the site with ?debug appended */
+if(location.search.indexOf('debug')>-1){
+  const d=document.createElement('div');
+  d.style.cssText='position:fixed;top:0;left:0;right:0;z-index:999;background:#000;color:#0f0;font:12px monospace;padding:8px;white-space:pre-wrap';
+  d.textContent=
+    'innerWidth: '+window.innerWidth+'  innerHeight: '+window.innerHeight+
+    '\ndevicePixelRatio: '+window.devicePixelRatio+
+    '\nscreen: '+screen.width+'x'+screen.height+
+    '\npointer coarse: '+matchMedia('(pointer:coarse)').matches+
+    '\nmax-width 520 matches: '+matchMedia('(max-width:520px)').matches+
+    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+
+    '\nUA: '+navigator.userAgent.slice(0,120);
+  document.body.appendChild(d);
+}
+
 /* Offline readiness indicator: counts cached images in the footer and
    quietly re-fetches any stragglers (the SW caches each response) */
 if('caches' in window && location.protocol.startsWith('http')){
