@@ -1848,12 +1848,12 @@ const EA_DATA = {
    "id": "s5-002",
    "section": 5,
    "sectionName": "Saddles & Stirrups",
-   "title": "Jumping Saddles",
-   "description": "Side Saddles PARTICIPATION ONLY",
+   "title": "Jumping Saddles & English Side Saddles",
+   "description": "",
    "notes": "",
-   "status": "permitted",
+   "status": "conditional",
    "penalty": null,
-   "condition": null,
+   "condition": "In Participation events ONLY, a jumping saddle and English style side saddles are permitted (National Rules 5.10).",
    "scope": "competition",
    "updated": null,
    "images": [
@@ -1861,7 +1861,7 @@ const EA_DATA = {
     "image158.jpg"
    ],
    "source": "annex",
-   "ruleRef": null
+   "ruleRef": "5.10"
   },
   {
    "id": "s5-003",
@@ -3475,11 +3475,5 @@ const EA_DATA = {
    "images": []
   }
  ],
- "conflicts": [
-  {
-   "topic": "Throat lash",
-   "annex": "Annex banner: “ALL BRIDLES MUST HAVE A THROAT LASH”; Micklem bridles assessed on whether the upper strap is fitted as a throat lash.",
-   "rules": "National Rules 5.11: a throat latch is required EXCEPT when the combined noseband or Micklem bridle is used."
-  }
- ]
+ "conflicts": []
 };

@@ -32,9 +32,10 @@ img{display:block}
 header{background:var(--green);color:var(--cream);padding:calc(14px + env(safe-area-inset-top)) 18px 0}
 .headrow{max-width:1100px;margin:0 auto;display:flex;align-items:stretch;gap:16px}
 .headcol{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
-.brandlogo{flex:none;height:auto;width:auto;align-self:stretch;object-fit:contain;object-position:left center}
-.brandlogo-r{object-position:right center}
+.brandlogo{flex:none;height:auto;width:auto;align-self:stretch;object-fit:contain;object-position:left center;transform:scale(.72);transform-origin:left center}
+.brandlogo-r{object-position:right center;transform-origin:right center}
 .mast{margin:0}
+.mast .kicker{font-family:var(--display);font-weight:500;font-size:clamp(13px,2vw,16px);opacity:.8;letter-spacing:.2px;line-height:1.2}
 .mast h1{font-family:var(--display);font-weight:650;font-size:clamp(16px,2.4vw,24px);margin:0;letter-spacing:.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .mast h1 span{opacity:.75;font-weight:500}
 .mast .meta{font-size:13px;opacity:.85;margin:3px 0 12px}
@@ -48,16 +49,16 @@ header{background:var(--green);color:var(--cream);padding:calc(14px + env(safe-a
 /* ---------- filter bar ---------- */
 .filters{position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:1px solid var(--line);padding:10px 18px}
 .filters-inner{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:9px}
-.statusrow{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.statusrow{display:flex;gap:7px;flex-wrap:wrap;align-items:center;justify-content:center}
 .seg{display:flex;background:#E7E3D5;border-radius:10px;padding:3px;gap:2px}
 .seg button{border:0;background:transparent;border-radius:8px;padding:6px 12px;font-size:13.5px;font-weight:600;color:var(--muted);white-space:nowrap}
 .seg button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
 .seg button .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px}
-.countwrap{margin-left:auto;display:flex;flex-direction:column;align-items:flex-end;gap:1px}
-.count{font-size:13px;color:var(--muted);font-weight:600}
+.countwrap{margin-left:0;display:flex;flex-direction:column;align-items:flex-end;gap:1px}
+.count{display:none}
 #offline-status{font-size:11px;color:var(--muted);font-weight:600;white-space:nowrap}
 #offline-status.done{color:var(--ok)}
-.secrow{display:flex;flex-wrap:wrap;gap:7px;padding-bottom:2px}
+.secrow{display:flex;flex-wrap:wrap;gap:7px;padding-bottom:2px;justify-content:center}
 .chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;font-size:13.5px;font-weight:600;color:var(--muted);white-space:nowrap}
 .chip[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}
 .chip.policy{border-style:dashed;color:var(--green)}
@@ -80,13 +81,14 @@ main{max-width:1100px;margin:0 auto;padding:18px 18px 60px}
 .imgcount{position:absolute;bottom:7px;right:8px;font-size:10.5px;font-weight:600;background:rgba(47,45,38,.6);color:#fff;padding:2px 7px;border-radius:9px;pointer-events:none}
 .cbody{padding:11px 13px 13px;display:flex;flex-direction:column;gap:7px;flex:1}
 .cbody h3{margin:0;font-size:15px;line-height:1.32;font-weight:600}
-.tags{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin-top:auto}
-.tag{font-size:11.5px;font-weight:700;padding:3px 8px;border-radius:6px}
-.tag.status{color:#fff;text-transform:uppercase;letter-spacing:.04em}
+.tags{display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin-top:auto}
+.tag{font-size:11px;font-weight:700;padding:3px 7px;border-radius:6px;white-space:nowrap}
+.tag.status{color:#fff;text-transform:uppercase;letter-spacing:0}
 .tag.status.permitted{background:var(--ok)}
 .tag.status.prohibited{background:var(--no)}
 .tag.status.conditional{background:var(--cond)}
-.tag.penright{margin-left:auto}
+.tagsright{margin-left:auto;display:flex;gap:4px;align-items:center}
+.cbody .tag.rref{cursor:pointer;text-decoration:underline;text-underline-offset:2px}
 .tag.pen{background:var(--no-bg);color:var(--no)}
 .tag.pen.half{background:var(--cond-bg);color:var(--cond)}
 .tag.warm{background:#E4EDF5;color:#2B5B82}
@@ -94,7 +96,7 @@ main{max-width:1100px;margin:0 auto;padding:18px 18px 60px}
 .empty{text-align:center;color:var(--muted);padding:70px 20px}
 
 /* ---------- tabs & rules ---------- */
-.tabs{display:flex;gap:8px;margin-bottom:9px}
+.tabs{display:flex;gap:8px;margin-bottom:9px;justify-content:center}
 .tabs button{border:0;background:transparent;border-radius:9px;padding:7px 15px;font-size:14.5px;font-weight:700;color:var(--muted)}
 .tabs button[aria-pressed="true"]{background:var(--green);color:#fff}
 .rulecard{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;text-align:left;width:100%;display:flex;gap:12px;align-items:baseline;transition:transform .12s ease,box-shadow .12s ease}
@@ -105,6 +107,25 @@ main{max-width:1100px;margin:0 auto;padding:18px 18px 60px}
 .rulecard p{margin:3px 0 0;font-size:13px;color:var(--muted);line-height:1.4}
 .rulelist{display:flex;flex-direction:column;gap:10px;max-width:760px;margin:0 auto}
 .rulelist[hidden]{display:none}
+.extlink{max-width:620px;margin:14px auto}
+.extlink[hidden]{display:none}
+.extcard{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:28px 22px;text-align:center}
+.extcard h2{font-family:var(--display);font-weight:650;font-size:22px;margin:0 0 10px;color:var(--ink)}
+.extcard p{color:var(--muted);margin:0 0 20px;line-height:1.5}
+.extbtn{display:inline-block;background:var(--green);color:#fff;text-decoration:none;font-weight:700;padding:13px 24px;border-radius:10px;font-size:16px}
+.extbtn:hover{background:var(--green-deep)}
+.extnote{font-size:13px;margin:20px 0 0!important}
+.testwrap{max-width:640px;margin:8px auto}
+.testwrap[hidden]{display:none}
+.subtabs{display:flex;gap:6px;justify-content:center;margin:0 0 14px;flex-wrap:wrap}
+.subtabs button{border:1px solid var(--line);background:var(--panel);color:var(--muted);font-weight:700;font-size:13.5px;padding:8px 15px;border-radius:8px}
+.subtabs button[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}
+.testintro{color:var(--muted);font-size:13px;text-align:center;margin:0 0 18px;line-height:1.5}
+.testgroup{margin:0 0 20px}
+.testgroup h3{font-family:var(--display);font-weight:650;font-size:16px;color:var(--green);margin:0 0 9px;border-bottom:1px solid var(--line);padding-bottom:6px}
+.testrow{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:12px 14px;margin-bottom:7px;text-decoration:none;color:var(--ink);font-weight:600;font-size:14px}
+.testrow:hover{border-color:var(--green)}
+.testrow .arr{flex:none;color:var(--green);font-weight:700;font-size:12.5px;white-space:nowrap}
 .conflict{border-left:4px solid var(--cond);background:var(--cond-bg)}
 .mbody ul{margin:8px 0;padding-left:20px}
 .mbody li{margin:7px 0}
@@ -171,7 +192,7 @@ footer button{border:0;background:none;color:var(--green);font-weight:700;paddin
   .cbody{padding:6px 8px 8px;gap:4px}
   .cbody h3{font-size:12px;line-height:1.25}
   .tags{gap:3px}
-  .tag{font-size:10px;padding:2px 5px;border-radius:4px}
+  .tag{font-size:9.5px;padding:2px 4px;border-radius:4px}
   .countwrap{width:100%;margin-left:0;flex-direction:row;justify-content:space-between;align-items:baseline}
   .count{font-size:11.5px}
   #offline-status{font-size:10.5px}
@@ -205,7 +226,8 @@ footer button{border:0;background:none;color:var(--green);font-weight:700;paddin
     <img class="brandlogo" src="images/ea-logo-white.png" alt="Equestrian Australia">
     <div class="headcol">
       <div class="mast">
-        <h1>Dressage Equipment and Rules <span>· Equestrian Australia</span></h1>
+        <div class="kicker">Equestrian Australia</div>
+        <h1>Dressage Rules, Equipment and Tests</h1>
         <div class="meta" id="metaline"></div>
       </div>
       <div class="searchwrap">
@@ -225,6 +247,8 @@ footer button{border:0;background:none;color:var(--green);font-weight:700;paddin
     <div class="tabs" role="tablist" id="tabbar">
       <button data-tab="equipment" aria-pressed="true">Equipment</button>
       <button data-tab="rules" aria-pressed="false">Equipment Rules</button>
+      <button data-tab="tests" aria-pressed="false">Dressage Tests</button>
+      <button data-tab="dressage" aria-pressed="false">Dressage Rulebook</button>
     </div>
     <div class="statusrow">
       <div class="seg" role="group" aria-label="Filter by status" id="statusSeg">
@@ -242,6 +266,15 @@ footer button{border:0;background:none;color:var(--green);font-weight:700;paddin
 <main>
   <div class="grid" id="grid"></div>
   <div class="rulelist" id="rulelist" hidden></div>
+  <div class="extlink" id="dressagelink" hidden>
+    <div class="extcard">
+      <h2>EA National Dressage Rules</h2>
+      <p>The complete National Dressage Rules, effective 1 January 2026, published by Equestrian Australia.</p>
+      <a class="extbtn" href="https://www.equestrian.org.au/sites/default/files/EA%20DressageRuleBook_January2026.pdf" target="_blank" rel="noopener">Open the rulebook (PDF) ↗</a>
+      <p class="extnote">Opens the official PDF on the EA website — requires an internet connection.</p>
+    </div>
+  </div>
+  <div class="testwrap" id="dressagetests" hidden></div>
   <div class="empty" id="empty" hidden>
     <div class="big">No matching equipment</div>
     <div>Try a shorter search term, or clear the section and status filters.</div>
@@ -265,6 +298,109 @@ const state = { q:'', status:'all', section:0, tab:'equipment' }; // section 0 =
 const items = EA_DATA.items;
 const rulesTopics = EA_DATA.rules||[];
 
+const DRESSAGE_TESTS = [
+  { heading:"Freestyle tests", items:[
+    {label:"2019 EA Novice Freestyle", url:"https://www.equestrian.org.au/sites/default/files/2019%20EA%20Novice%20Freestyle%20-%204-6-19_2.pdf"},
+    {label:"2019 EA Elementary Freestyle", url:"https://www.equestrian.org.au/sites/default/files/2019%20EA%20Elementary%20Freestyle%20-%2018-3-19.pdf"},
+    {label:"2019 EA Medium Freestyle", url:"https://www.equestrian.org.au/sites/default/files/2019%20EA%20Medium%20Freestyle%20-%2018-3-19.pdf"},
+    {label:"2019 EA Advanced Freestyle", url:"https://www.equestrian.org.au/sites/default/files/2019%20EA%20Advanced%20Freestyle%20-%2018-3-19.pdf"},
+  ]},
+  { heading:"Freestyle tests — effective 1 January 2021", items:[
+    {label:"Novice Freestyle - Final Eff. 1-1-21", url:"https://www.equestrian.org.au/sites/default/files/Novice%20Freestyle%20Eff.%201-1-21%20-%20Final%2012-11-20.pdf"},
+    {label:"Advanced Freestyle - Final Eff. 1-1-21", url:"https://www.equestrian.org.au/sites/default/files/Advanced%20Freestyle%20-%20Final%20Eff.%201-1-21.pdf"},
+  ]},
+  { heading:"Preliminary tests", items:[
+    {label:"2023 EA Preliminary 1.1 (1-1-23)", url:"https://www.equestrian.org.au/sites/default/files/1Jan2023%201.1.pdf"},
+    {label:"2023 EA Preliminary 1.2 (1-1-23)", url:"https://www.equestrian.org.au/sites/default/files/1Jan2023%201.2.pdf"},
+    {label:"2023 EA Preliminary 1.3 (1-1-23)", url:"https://www.equestrian.org.au/sites/default/files/1Jan2023%201.3_1.pdf"},
+  ]},
+  { heading:"Novice tests", items:[
+    {label:"2023 EA Novice 2.1 (1-1-23)", url:"https://www.equestrian.org.au/sites/default/files/1Jan2023%202.1_0.pdf"},
+    {label:"2023 EA Novice 2.2 (1-1-23)", url:"https://www.equestrian.org.au/sites/default/files/1Jan2023%202.2_2.pdf"},
+    {label:"2023 EA Novice 2.3 (1-1-23)", url:"https://www.equestrian.org.au/sites/default/files/1Jan2023%202.3_1.pdf"},
+  ]},
+  { heading:"Elementary tests", items:[
+    {label:"2023 EA Elementary 3.1 (1-1-23)", url:"https://www.equestrian.org.au/sites/default/files/1Jan2023%203.1_0.pdf"},
+    {label:"2023 EA Elementary 3.2 (1-1-23)", url:"https://www.equestrian.org.au/sites/default/files/1Jan2023%203.2_1.pdf"},
+    {label:"2023 EA Elementary 3.3 (1-1-23)", url:"https://www.equestrian.org.au/sites/default/files/1Jan2023%203.3.pdf"},
+  ]},
+  { heading:"Medium tests", items:[
+    {label:"2023 EA Medium 4.1 (1-1-23)", url:"https://www.equestrian.org.au/sites/default/files/1Jan2023%204.1.pdf"},
+    {label:"2023 EA Medium 4.2 (1-1-23)", url:"https://www.equestrian.org.au/sites/default/files/1Jan2023%204.2.pdf"},
+    {label:"2023 EA Medium 4.3 (1-1-23)", url:"https://www.equestrian.org.au/sites/default/files/1Jan2023%204.3.pdf"},
+  ]},
+  { heading:"Advanced tests", items:[
+    {label:"2023 EA Advanced 5.1 (1-1-23)", url:"https://www.equestrian.org.au/sites/default/files/1Jan2023%205.1_0.pdf"},
+    {label:"2023 EA Advanced 5.2 (1-1-23)", url:"https://www.equestrian.org.au/sites/default/files/1Jan2023%205.2_1.pdf"},
+    {label:"2023 EA Advanced 5.3 - Amended 21 AUG 24", url:"https://www.equestrian.org.au/sites/default/files/2023%20EA%20Advanced%205.3%20-%20Amended%2021%20AUG%2024.pdf"},
+  ]},
+  { heading:"Preparatory tests", items:[
+    {label:"2023 EA Prep Test 1 (1-1-23)", url:"https://www.equestrian.org.au/sites/default/files/1Jan2023%20Prep%201.pdf"},
+    {label:"2023 EA Prep Test 2 (1-1-23)", url:"https://www.equestrian.org.au/sites/default/files/1Jan2023%20Prep%202.pdf"},
+    {label:"2023 EA Prep Test 3 (1-1-23)", url:"https://www.equestrian.org.au/sites/default/files/1Jan2023%20Prep%203.pdf"},
+  ]},
+];
+
+const PARA_TESTS = [
+  { heading:"Grade I", items:[
+    {label:"Preparatory Test", url:"https://www.equestrian.org.au/sites/default/files/EA%20PD%20Grade%20I%20Preparatory%20Test%20Final.pdf"},
+    {label:"Preliminary Test", url:"https://www.equestrian.org.au/sites/default/files/EA%20PD%20Grade%20I%20Preliminary%20Test%20Final.pdf"},
+    {label:"Novice Test", url:"https://www.equestrian.org.au/sites/default/files/EA%20PD%20Grade%20I%20Novice%20Test%20Final.pdf"},
+    {label:"Elementary Test", url:"https://www.equestrian.org.au/sites/default/files/EA%20PD%20Grade%20I%20Elementary%20Test%20Final.pdf"},
+    {label:"Freestyle Test", url:"https://www.equestrian.org.au/sites/default/files/Grade_I_Freestyle%202022.pdf"},
+  ]},
+  { heading:"Grade II", items:[
+    {label:"Preparatory Test", url:"https://www.equestrian.org.au/sites/default/files/EA%20PD%20Grade%20II%20Preparatory%20Test%20Final.pdf"},
+    {label:"Preliminary Test", url:"https://www.equestrian.org.au/sites/default/files/EA%20PD%20Grade%20II%20Preliminary%20Test%20Final.pdf"},
+    {label:"Novice Test", url:"https://www.equestrian.org.au/sites/default/files/EA%20PD%20Grade%20II%20Novice%20Test%20Final.pdf"},
+    {label:"Elementary Test", url:"https://www.equestrian.org.au/sites/default/files/EA%20PD%20Grade%20II%20Elementary%20Test%20Final.pdf"},
+    {label:"Freestyle Test", url:"https://www.equestrian.org.au/sites/default/files/Grade_II_Freestyle%202022.pdf"},
+  ]},
+  { heading:"Grade III", items:[
+    {label:"Preparatory Test", url:"https://www.equestrian.org.au/sites/default/files/EA%20PD%20Grade%20III%20Preparatory%20Test%20Final.pdf"},
+    {label:"Preliminary Test", url:"https://www.equestrian.org.au/sites/default/files/EA%20PD%20Grade%20III%20Preliminary%20Test%20Final.pdf"},
+    {label:"Novice Test", url:"https://www.equestrian.org.au/sites/default/files/EA%20PD%20Grade%20III%20Novice%20Test%20Final.pdf"},
+    {label:"Elementary Test", url:"https://www.equestrian.org.au/sites/default/files/EA%20PD%20Grade%20III%20Elementary%20Test%20Final.pdf"},
+    {label:"Freestyle Test", url:"https://www.equestrian.org.au/sites/default/files/Grade_III_Freestyle%202022.pdf"},
+  ]},
+  { heading:"Grade IV", items:[
+    {label:"Preparatory Test", url:"https://www.equestrian.org.au/sites/default/files/EA%20PD%20Grade%20IV%20Preparatory%20Final.pdf"},
+    {label:"Preliminary Test", url:"https://www.equestrian.org.au/sites/default/files/EA%20PD%20Grade%20IV%20Preliminary%20Test%20Final_1.pdf"},
+    {label:"Novice Test", url:"https://www.equestrian.org.au/sites/default/files/EA%20PD%20Grade%20IV%20Novice%20Test%20Final.pdf"},
+    {label:"Elementary Test", url:"https://www.equestrian.org.au/sites/default/files/EA%20PD%20Grade%20IV%20Elementary%20Test%20Final.pdf"},
+    {label:"Freestyle Test", url:"https://www.equestrian.org.au/sites/default/files/Grade_IV_Freestyle_2022.pdf"},
+  ]},
+  { heading:"Grade V", items:[
+    {label:"Preparatory Test", url:"https://www.equestrian.org.au/sites/default/files/EA%20PD%20Grade%20V%20Preparatory%20Test%20Final.pdf"},
+    {label:"Preliminary Test", url:"https://www.equestrian.org.au/sites/default/files/EA%20PD%20Grade%20V%20Preliminary%20Test%20Final.pdf"},
+    {label:"Novice Test", url:"https://www.equestrian.org.au/sites/default/files/EA%20PD%20Grade%20V%20Novice%20Test%20Final.pdf"},
+    {label:"Elementary Test", url:"https://www.equestrian.org.au/sites/default/files/EA%20PD%20Grade%20V%20Elementary%20Test%20Final.pdf"},
+    {label:"Freestyle Test", url:"https://www.equestrian.org.au/sites/default/files/Grade_V_Freestyle_2022.pdf"},
+  ]},
+];
+
+let testSub = 'ea';
+function testGroupsHTML(groups){
+  return groups.map(g=>`<div class="testgroup"><h3>${esc(g.heading)}</h3>`+
+    g.items.map(t=>`<a class="testrow" href="${t.url}" target="_blank" rel="noopener"><span>${esc(t.label)}</span><span class="arr">PDF ↗</span></a>`).join('')+
+    `</div>`).join('');
+}
+function renderTests(){
+  count.textContent=''; empty.hidden=true;
+  const para = testSub==='para';
+  const groups = para ? PARA_TESTS : DRESSAGE_TESTS;
+  const intro = para
+    ? 'Official EA Para Dressage tests, grouped by grade. Each opens the PDF on the EA website — requires an internet connection.'
+    : 'Official EA dressage tests, published by Equestrian Australia. Each opens the PDF on the EA website — requires an internet connection.';
+  document.getElementById('dressagetests').innerHTML =
+    `<div class="subtabs">`+
+      `<button data-sub="ea" aria-pressed="${!para}">EA Dressage Tests</button>`+
+      `<button data-sub="para" aria-pressed="${para}">EA Para Dressage Tests</button>`+
+    `</div>`+
+    `<p class="testintro">${intro}</p>`+
+    testGroupsHTML(groups);
+}
+
 document.getElementById('tabbar').addEventListener('click', e=>{
   const b = e.target.closest('button'); if(!b) return;
   state.tab = b.dataset.tab;
@@ -273,12 +409,19 @@ document.getElementById('tabbar').addEventListener('click', e=>{
   document.querySelector('.statusrow .seg').style.display = eq?'flex':'none';
   document.getElementById('secrow').style.display = eq?'flex':'none';
   document.getElementById('grid').hidden = !eq;
-  document.getElementById('rulelist').hidden = eq;
+  document.getElementById('rulelist').hidden = state.tab!=='rules';
+  document.getElementById('dressagelink').hidden = state.tab!=='dressage';
+  document.getElementById('dressagetests').hidden = state.tab!=='tests';
+  document.querySelector('footer').hidden = (state.tab==='dressage' || state.tab==='tests');
   render();
 });
 
-document.getElementById('metaline').textContent =
-  `${EA_DATA.meta.version} · Updated ${EA_DATA.meta.updated} · Effective ${EA_DATA.meta.effective}`;
+document.getElementById('dressagetests').addEventListener('click', e=>{
+  const b = e.target.closest('[data-sub]'); if(!b) return;
+  testSub = b.dataset.sub; renderTests();
+});
+
+document.getElementById('metaline').textContent = 'Effective ' + EA_DATA.meta.effective;
 document.getElementById('srcline').textContent = EA_DATA.meta.source + ' — ' + EA_DATA.meta.version;
 
 /* section chips */
@@ -418,6 +561,8 @@ function openRule(r, pushHistory){
 
 
 function render(){
+  if(state.tab==='dressage'){ count.textContent=''; empty.hidden=true; return; }
+  if(state.tab==='tests'){ renderTests(); return; }
   if(state.tab==='rules'){ renderRules(); return; }
   const statusOrder = {permitted:0, conditional:1, prohibited:2};
   const list = items.filter(matches).sort((a,b) =>
@@ -444,12 +589,23 @@ function render(){
         <h3>${esc(it.title)}</h3>
         <div class="tags">
           <span class="tag status ${it.status}">${it.status}</span>
-          ${it.scope==='warm-up' ? `<span class="tag warm">Warm-up only</span>`:''}
-          ${it.ruleRef ? `<span class="tag rref">Rule ${it.ruleRef.split(' ')[0]}</span>`:''}
-          ${it.penalty ? `<span class="tag pen penright ${it.penalty.includes('0.5')?'half':''}">${it.penalty}</span>`:''}
+          ${it.scope==='warm-up' ? `<span class="tag warm">Warm-up</span>`:''}
+          <span class="tagsright">
+            ${it.penalty ? `<span class="tag pen ${it.penalty.includes('0.5')?'half':''}">${it.penalty}</span>`:''}
+            ${it.ruleRef ? `<span class="tag rref">Rule ${it.ruleRef.split(' ')[0]}</span>`:''}
+          </span>
         </div>
       </div>`;
-    c.onclick = ()=>openItem(it);
+    c.onclick = (e)=>{
+      const pill = e.target.closest('.tag.rref');
+      if(pill && it.ruleRef){
+        const base = it.ruleRef.split(' ')[0];
+        const target = rulesTopics.find(r=>r.ref===base)
+          || rulesTopics.find(r=>r.ref===base.split('.').slice(0,2).join('.'));
+        if(target){ openRule(target); return; }
+      }
+      openItem(it);
+    };
     frag.appendChild(c);
   }
   grid.appendChild(frag);

@@ -48,8 +48,9 @@ Verify every `images[]` entry exists in `site/images/`. Keep total site
 size small (~3 MB) — images are pre-compressed to ≤700px JPEG q≈83.
 
 ## Known open editorial items (owner to resolve)
-1. Throat lash: Annex ("all bridles") vs Rules 5.11 (Micklem/combined
-   noseband exempt).
+1. RESOLVED 2026-07-07: Throat lash — owner ruled National Rules 5.11 wording
+   governs (throat latch required except combined noseband/Micklem bridle);
+   conflict card removed, rule 5.11(f) is the single source.
 2. s1-007 "Variant of Eggbutt cheeks": source had a placeholder, no image.
 3. Captions for r5-image48/49 (lungeing gear / nose net) inferred from
    position — marked "please verify caption" in rules 5.13 / 5.15.
