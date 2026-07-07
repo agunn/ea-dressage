@@ -117,6 +117,7 @@ main{max-width:1100px;margin:0 auto;padding:18px 18px 60px}
 .extnote{font-size:13px;margin:20px 0 0!important}
 .testwrap{max-width:640px;margin:8px auto}
 .testwrap[hidden]{display:none}
+#updbar{position:fixed;left:50%;transform:translateX(-50%);bottom:20px;z-index:60;background:var(--green);color:#fff;border:0;border-radius:999px;padding:11px 20px;font-size:14px;font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.25)}
 .subtabs{display:flex;gap:6px;justify-content:center;margin:0 0 14px;flex-wrap:wrap}
 .subtabs button{border:1px solid var(--line);background:var(--panel);color:var(--muted);font-weight:700;font-size:13.5px;padding:8px 15px;border-radius:8px}
 .subtabs button[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}
@@ -168,6 +169,7 @@ footer button{border:0;background:none;color:var(--green);font-weight:700;paddin
   .tabs button{flex:1;border-radius:8px;padding:12px 0;font-size:15px;text-align:center}
   main{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
   footer{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+  #updbar{bottom:calc(92px + env(safe-area-inset-bottom))}
 }
 @media (max-width:600px){
   /* header compact */
@@ -207,6 +209,7 @@ footer button{border:0;background:none;color:var(--green);font-weight:700;paddin
   /* bottom padding so content isn't hidden behind tab bar */
   main{padding-bottom:calc(80px + env(safe-area-inset-bottom))}
   footer{padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+  #updbar{bottom:calc(88px + env(safe-area-inset-bottom))}
 
   /* full-screen modal */
   dialog{max-width:100%;width:100%;max-height:100%;max-height:100dvh;border-radius:0;margin:0;height:100dvh}
@@ -679,9 +682,26 @@ function placeTabbar(){
 placeTabbar();
 bottomBarMQ.addEventListener ? bottomBarMQ.addEventListener('change', placeTabbar) : bottomBarMQ.addListener(placeTabbar);
 
-/* PWA */
+/* PWA + update notification: when a new service worker takes over
+   (a new version finished downloading), offer a one-tap reload */
 if('serviceWorker' in navigator && location.protocol.startsWith('http')){
-  navigator.serviceWorker.register('sw.js').catch(()=>{});
+  const hadController = !!navigator.serviceWorker.controller;
+  navigator.serviceWorker.register('sw.js').then(reg=>{
+    // re-check for updates whenever the app is brought back to the foreground
+    document.addEventListener('visibilitychange', ()=>{
+      if(document.visibilityState==='visible') reg.update().catch(()=>{});
+    });
+  }).catch(()=>{});
+  if(hadController){
+    navigator.serviceWorker.addEventListener('controllerchange', ()=>{
+      if(document.getElementById('updbar')) return;
+      const b=document.createElement('button');
+      b.id='updbar';
+      b.textContent='New version available — tap to update';
+      b.onclick=()=>location.reload();
+      document.body.appendChild(b);
+    });
+  }
 }
 
 /* temporary device diagnostics: open the site with ?debug appended */
@@ -695,7 +715,7 @@ if(location.search.indexOf('debug')>-1){
     '\npointer coarse: '+matchMedia('(pointer:coarse)').matches+
     '\nphone layout (<=600) active: '+matchMedia('(max-width:600px)').matches+
     '\nheader height: '+Math.round(document.querySelector('header').getBoundingClientRect().height)+'px'+
-    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v79';
+    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v80';
   document.body.appendChild(d);
 }
 
