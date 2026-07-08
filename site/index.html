@@ -57,7 +57,11 @@ header{background:var(--green);color:var(--cream);padding:calc(14px + env(safe-a
 .countwrap{flex-basis:100%;display:flex;flex-direction:column;align-items:center;gap:1px}
 .count{display:none}
 .mast .installlink{border:0;background:none;padding:0;color:var(--cream);font-weight:700;font-size:inherit;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
-@media (display-mode: standalone){.mast .installlink{display:none}}
+@media (display-mode: standalone){#installBtn{display:none}}
+.shareqr{display:block;width:min(70vw,260px);margin:14px auto 6px;border:1px solid var(--line);border-radius:10px;padding:10px;background:#fff}
+.shareurl{text-align:center;font-weight:700;color:var(--green);margin:0 0 16px}
+.sharebtnrow{text-align:center;margin:0 0 6px}
+.sharebtn{border:0;background:var(--green);color:#fff;font-weight:700;font-size:15px;padding:12px 22px;border-radius:10px;cursor:pointer}
 #offline-status{font-size:11px;color:var(--muted);font-weight:600;white-space:nowrap}
 #offline-status.done{color:var(--ok)}
 .secrow{display:flex;flex-wrap:wrap;gap:7px;padding-bottom:2px;justify-content:center}
@@ -452,7 +456,9 @@ document.getElementById('dressagetests').addEventListener('click', e=>{
 
 const isInstalled = matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
 document.getElementById('metaline').innerHTML = 'Effective ' + esc(EA_DATA.meta.effective) +
-  (isInstalled ? '' : ' · <button class="installlink" id="installBtn" type="button">Install on your phone</button>');
+  (isInstalled
+    ? ' · <button class="installlink" id="shareBtn" type="button">Share this app</button>'
+    : ' · <button class="installlink" id="installBtn" type="button">Install on your phone</button>');
 
 /* section chips */
 const secrow = document.getElementById('secrow');
@@ -722,6 +728,33 @@ function openInstall(){
 const installBtn = document.getElementById('installBtn');
 if(installBtn) installBtn.onclick = openInstall;
 
+function openShare(){
+  mtitle.textContent = 'Share this app';
+  mcontent.innerHTML = `
+    <div class="mbody">
+      <p style="text-align:center">Have a friend scan this code with their phone camera — it opens the site,
+      ready to install.</p>
+      <img class="shareqr" src="images/app-qr.png" alt="QR code for ea-dressage.eq-au.workers.dev">
+      <p class="shareurl">ea-dressage.eq-au.workers.dev</p>
+      <div class="sharebtnrow" id="sharerow"></div>
+      <p style="text-align:center">Or send them the
+      <a href="install-guide.pdf" target="_blank" rel="noopener">printable install guide (PDF)</a> —
+      it has the same QR code plus step-by-step instructions.</p>
+    </div>`;
+  if(navigator.share){
+    const b=document.createElement('button');
+    b.className='sharebtn';
+    b.textContent='Share the link…';
+    b.onclick=()=>{ navigator.share({title:'EA Dressage Rules, Equipment and Tests',
+      text:'Searchable EA dressage equipment and rules — install it on your phone:',
+      url:'https://ea-dressage.eq-au.workers.dev/'}).catch(()=>{}); };
+    document.getElementById('sharerow').appendChild(b);
+  }
+  modal.showModal();
+}
+const shareBtn = document.getElementById('shareBtn');
+if(shareBtn) shareBtn.onclick = openShare;
+
 function openAdvisory(){
   mtitle.textContent = 'Equestrian Australia Dressage Equipment Annex';
   mcontent.innerHTML = `
@@ -787,7 +820,7 @@ if(location.search.indexOf('debug')>-1){
     '\npointer coarse: '+matchMedia('(pointer:coarse)').matches+
     '\nphone layout (<=600) active: '+matchMedia('(max-width:600px)').matches+
     '\nheader height: '+Math.round(document.querySelector('header').getBoundingClientRect().height)+'px'+
-    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v89';
+    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v90';
   document.body.appendChild(d);
 }
 
