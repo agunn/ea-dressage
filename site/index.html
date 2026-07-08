@@ -67,7 +67,7 @@ header{background:var(--green);color:var(--cream);padding:calc(14px + env(safe-a
 .secrow{display:flex;flex-wrap:wrap;gap:7px;padding-bottom:2px;justify-content:center}
 .chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;font-size:13.5px;font-weight:600;color:var(--muted);white-space:nowrap}
 .chip[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}
-.chip.policy{border-style:dashed;color:var(--green)}
+.secrail{position:relative}
 
 /* ---------- grid ---------- */
 main{max-width:1100px;margin:0 auto;padding:18px 18px 60px}
@@ -221,7 +221,15 @@ footer button{border:0;background:none;color:var(--green);font-weight:700;paddin
   #offline-status{font-size:10.5px}
 
   /* chips */
-  .secrow{gap:4px}
+  /* single-row scrollable chip rail with edge fades */
+  .secrow{gap:4px;flex-wrap:nowrap;overflow-x:auto;padding-right:30px;justify-content:flex-start;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .secrow::-webkit-scrollbar{display:none}
+  .secrow .chip{flex:none}
+  .secrail::before,.secrail::after{content:"";position:absolute;top:0;bottom:0;width:26px;pointer-events:none;opacity:0;transition:opacity .2s;z-index:2}
+  .secrail::before{left:0;background:linear-gradient(to right,var(--paper),rgba(241,239,231,0))}
+  .secrail::after{right:0;background:linear-gradient(to left,var(--paper),rgba(241,239,231,0))}
+  .secrail.fade-l::before{opacity:1}
+  .secrail.fade-r::after{opacity:1}
   .chip{padding:4px 9px;font-size:11.5px;border-radius:6px}
 
   /* bottom padding so content isn't hidden behind tab bar */
@@ -286,7 +294,7 @@ footer button{border:0;background:none;color:var(--green);font-weight:700;paddin
       </div>
       <span class="countwrap"><span class="count" id="count"></span><span id="offline-status" hidden></span></span>
     </div>
-    <div class="secrow" id="secrow" role="group" aria-label="Filter by section"></div>
+    <div class="secrail" id="secrail"><div class="secrow" id="secrow" role="group" aria-label="Filter by section"></div></div>
   </div>
 </div>
 
@@ -470,14 +478,21 @@ function secChip(id, label){
   b.dataset.sec = id;
   return b;
 }
+const secrail = document.getElementById('secrail');
+function updateRailFades(){
+  const scrollable = secrow.scrollWidth > secrow.clientWidth + 2;
+  secrail.classList.toggle('fade-l', scrollable && secrow.scrollLeft > 2);
+  secrail.classList.toggle('fade-r', scrollable && secrow.scrollLeft + secrow.clientWidth < secrow.scrollWidth - 2);
+}
+secrow.addEventListener('scroll', updateRailFades, {passive:true});
+window.addEventListener('resize', updateRailFades);
 function renderChips(){
   secrow.innerHTML='';
   secrow.appendChild(secChip(0,'All sections'));
   EA_DATA.sections.forEach(s=>secrow.appendChild(secChip(s.id, s.id+' · '+s.name)));
-  const p = document.createElement('button');
-  p.className='chip policy'; p.textContent='ⓘ Noseband policy';
-  p.onclick = openPolicy;
-  secrow.appendChild(p);
+  updateRailFades();
+  const sel = secrow.querySelector('[aria-pressed="true"]');
+  if(sel && secrow.scrollWidth > secrow.clientWidth) sel.scrollIntoView({inline:'nearest', block:'nearest'});
 }
 renderChips();
 
@@ -518,6 +533,14 @@ function renderRules(){
   count.textContent = list.length + ' of ' + rulesTopics.length + ' topics';
   empty.hidden = list.length>0;
   rulelist.innerHTML='';
+  // EADC noseband policy — moved here from the equipment section chips
+  {
+    const d = document.createElement('button');
+    d.className='rulecard';
+    d.innerHTML = `<span class="ref">ⓘ</span><span><h3>EADC Noseband Policy</h3><p>Welfare of the horse is paramount — tap to read the policy and measuring guide.</p></span>`;
+    d.onclick = openPolicy;
+    rulelist.appendChild(d);
+  }
   // editorial conflicts note
   if(!state.q && (EA_DATA.conflicts||[]).length){
     for(const c of EA_DATA.conflicts){
@@ -842,7 +865,7 @@ if(location.search.indexOf('debug')>-1){
     '\npointer coarse: '+matchMedia('(pointer:coarse)').matches+
     '\nphone layout (<=600) active: '+matchMedia('(max-width:600px)').matches+
     '\nheader height: '+Math.round(document.querySelector('header').getBoundingClientRect().height)+'px'+
-    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v91';
+    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v92';
   document.body.appendChild(d);
 }
 
