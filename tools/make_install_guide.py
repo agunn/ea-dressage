@@ -152,3 +152,9 @@ print("wrote", OUT)
 import shutil
 shutil.copyfile(OUT, "/Volumes/web/ea-dressage/site/install-guide.pdf")
 print("copied to site/install-guide.pdf")
+
+import pypdfium2 as pdfium
+_pdf = pdfium.PdfDocument(OUT)
+_img = _pdf[0].render(scale=1.7).to_pil().convert("RGB")
+_img.save("/Volumes/web/ea-dressage/site/images/install-guide.jpg", quality=88, optimize=True)
+print("rendered site/images/install-guide.jpg")
