@@ -1707,7 +1707,9 @@ const EA_DATA = {
    "condition": null,
    "scope": "competition",
    "updated": "Jan 2023",
-   "images": [],
+   "images": [
+    "image225.jpg"
+   ],
    "source": "annex",
    "ruleRef": null
   },
@@ -2597,7 +2599,10 @@ const EA_DATA = {
    "condition": null,
    "scope": "competition",
    "updated": null,
-   "images": [],
+   "images": [
+    "image226.jpg",
+    "image227.jpg"
+   ],
    "source": "rules",
    "ruleRef": "5.12"
   },
@@ -2652,7 +2657,9 @@ const EA_DATA = {
    "condition": null,
    "scope": "competition",
    "updated": null,
-   "images": [],
+   "images": [
+    "image228.jpg"
+   ],
    "source": "rules",
    "ruleRef": "5.12"
   },
@@ -2668,7 +2675,9 @@ const EA_DATA = {
    "condition": "Exception: a red ribbon in the tail to indicate a horse that kicks.",
    "scope": "competition",
    "updated": null,
-   "images": [],
+   "images": [
+    "image229.jpg"
+   ],
    "source": "rules",
    "ruleRef": "5.12"
   },
@@ -2684,7 +2693,9 @@ const EA_DATA = {
    "condition": "Permitted in presentations/prize-giving only.",
    "scope": "competition",
    "updated": null,
-   "images": [],
+   "images": [
+    "image239.jpg"
+   ],
    "source": "rules",
    "ruleRef": "5.12"
   },
@@ -2732,7 +2743,9 @@ const EA_DATA = {
    "condition": "Up to and including Medium level, with a snaffle bridle only.",
    "scope": "competition",
    "updated": null,
-   "images": [],
+   "images": [
+    "image230.jpg"
+   ],
    "source": "rules",
    "ruleRef": "5.12"
   },
@@ -2748,7 +2761,9 @@ const EA_DATA = {
    "condition": "All levels.",
    "scope": "competition",
    "updated": null,
-   "images": [],
+   "images": [
+    "image231.jpg"
+   ],
    "source": "rules",
    "ruleRef": "5.12"
   },
@@ -2764,7 +2779,9 @@ const EA_DATA = {
    "condition": "All levels, for safety purposes only.",
    "scope": "competition",
    "updated": null,
-   "images": [],
+   "images": [
+    "image232.jpg"
+   ],
    "source": "rules",
    "ruleRef": "5.12"
   },
@@ -2780,7 +2797,9 @@ const EA_DATA = {
    "condition": null,
    "scope": "competition",
    "updated": null,
-   "images": [],
+   "images": [
+    "image233.jpg"
+   ],
    "source": "rules",
    "ruleRef": "5.12"
   },
@@ -2796,7 +2815,9 @@ const EA_DATA = {
    "condition": null,
    "scope": "competition",
    "updated": null,
-   "images": [],
+   "images": [
+    "image234.jpg"
+   ],
    "source": "rules",
    "ruleRef": "5.12"
   },
@@ -2812,7 +2833,9 @@ const EA_DATA = {
    "condition": "One whip only: horses max 1.20 m, ponies max 1.00 m (tassel included). Permitted in warm-up and in tests up to and including Advanced. Not to be carried at FEI-level tests at State and Australian Championships: 0.5% per judge if carried circling or entering the arena; elimination if carried in the test for more than 3 movements. Lungeing whip permitted when lungeing.",
    "scope": "warm-up",
    "updated": null,
-   "images": [],
+   "images": [
+    "image235.jpg"
+   ],
    "source": "rules",
    "ruleRef": "5.6 / 5.12"
   },
@@ -2828,7 +2851,9 @@ const EA_DATA = {
    "condition": "Lungeing only. Only one lunge rein; lunge line/side reins must not attach to a curb bit. Lungeing a mounted rider is not permitted anywhere at the event.",
    "scope": "competition",
    "updated": null,
-   "images": [],
+   "images": [
+    "image236.jpg"
+   ],
    "source": "rules",
    "ruleRef": "5.13"
   },
@@ -2898,7 +2923,10 @@ const EA_DATA = {
    "condition": "Permitted in warm-up only. 0.5% from each judge if worn in the space around the arena; 0.5% from each judge if worn in the arena.",
    "scope": "warm-up",
    "updated": null,
-   "images": [],
+   "images": [
+    "image237.jpg",
+    "image238.jpg"
+   ],
    "source": "rules",
    "ruleRef": "5.12 / 5.17"
   },
