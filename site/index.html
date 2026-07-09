@@ -39,7 +39,8 @@ header{background:var(--green);color:var(--cream);padding:calc(14px + env(safe-a
 .mast h1{font-family:var(--display);font-weight:650;font-size:clamp(16px,2.4vw,24px);margin:0;letter-spacing:.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .mast h1 span{opacity:.75;font-weight:500}
 .mast .meta{font-size:13px;opacity:.85;margin:3px 0 12px}
-.searchwrap{margin-top:10px;padding-bottom:14px}
+.searchwrap{margin-top:10px;padding-bottom:14px;display:flex;align-items:center;gap:10px}
+.searchwrap .searchbox{flex:1}
 .searchbox{display:flex;align-items:center;gap:10px;background:#fff;border-radius:12px;padding:11px 14px;box-shadow:0 2px 8px rgba(0,0,0,.18)}
 .searchbox svg{flex:none;opacity:.5}
 .searchbox input{border:0;outline:0;flex:1;font-size:17px;font-family:var(--body);color:var(--ink);background:transparent;min-width:0}
@@ -106,9 +107,12 @@ main{max-width:1100px;margin:0 auto;padding:18px 18px 60px}
 .tabs{display:flex;gap:8px;margin-bottom:9px;justify-content:center}
 .tabs button{border:0;background:transparent;border-radius:9px;padding:7px 15px;font-size:14.5px;font-weight:700;color:var(--muted)}
 .tabs button[aria-pressed="true"]{background:var(--green);color:#fff}
-.eqgroup{display:inline-flex;align-items:center;gap:6px;padding:3px;border:1.5px solid var(--green);border-radius:13px}
 .tabs > button{border:1.5px solid var(--green);border-radius:13px}
-.tabs .infoic{flex:none;align-self:center;display:inline-flex;align-items:center;justify-content:center;width:29px;height:29px;padding:0;border-radius:50%;background:var(--green);color:#fff;font-size:16px;font-weight:700;font-family:Georgia,serif;font-style:italic;line-height:1;border:0;cursor:pointer}
+.tabs button{display:inline-flex;align-items:center;gap:7px}
+.tabs button svg{width:16px;height:16px;flex:none}
+.icw{display:inline-flex;align-items:center;justify-content:center}
+.tl-short{display:none}
+.infoic{flex:none;align-self:center;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;padding:0;border-radius:50%;background:var(--green);color:#fff;font-size:14px;font-weight:700;font-family:Georgia,serif;font-style:italic;line-height:1;border:0;cursor:pointer}
 .rulecard{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;text-align:left;width:100%;display:flex;gap:12px;align-items:baseline;transition:transform .12s ease,box-shadow .12s ease}
 .rulecard:hover{transform:translateY(-1px);box-shadow:0 5px 14px rgba(34,39,31,.09)}
 .rulecard:focus-visible{outline:3px solid var(--green);outline-offset:2px}
@@ -178,9 +182,14 @@ footer button{border:0;background:none;color:var(--green);font-weight:700;paddin
    dock the Equipment/Rules tabs to the bottom where thumbs can reach them */
 @media (pointer:coarse) and (min-width:601px){
   .tabs{position:fixed;bottom:0;left:0;right:0;z-index:40;background:var(--panel);border-top:1px solid var(--line);margin:0;gap:0;padding:6px env(safe-area-inset-right) calc(6px + env(safe-area-inset-bottom)) env(safe-area-inset-left);justify-content:stretch;box-shadow:0 -2px 10px rgba(0,0,0,.08)}
-  .tabs button{flex:1;border-radius:8px;padding:12px 0;font-size:15px;text-align:center}
+  .tabs button{flex:1;flex-direction:column;gap:3px;padding:8px 0 10px;font-size:11px;font-weight:600;border-radius:0;text-align:center}
   .tabs > button{border:0}
-  .tabs .eqgroup{flex:1;padding:2px 3px;border:0}
+  .tabs button[aria-pressed="true"]{background:transparent;color:var(--green);font-weight:700}
+  .tabs button .icw{padding:3px 16px;border-radius:999px}
+  .tabs button[aria-pressed="true"] .icw{background:var(--green);color:#fff}
+  .tabs button svg{width:22px;height:22px}
+  .tl-long{display:none}
+  .tl-short{display:inline}
   main{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
   footer{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
   #updbar{bottom:calc(92px + env(safe-area-inset-bottom))}
@@ -201,9 +210,14 @@ footer button{border:0;background:none;color:var(--green);font-weight:700;paddin
 
   /* bottom tab bar */
   .tabs{position:fixed;bottom:0;left:0;right:0;z-index:40;background:var(--panel);border-top:1px solid var(--line);margin:0;gap:0;padding:6px env(safe-area-inset-right) calc(6px + env(safe-area-inset-bottom)) env(safe-area-inset-left);justify-content:stretch;box-shadow:0 -2px 10px rgba(0,0,0,.08)}
-  .tabs button{flex:1;border-radius:8px;padding:10px 0;font-size:14px;text-align:center}
+  .tabs button{flex:1;flex-direction:column;gap:3px;padding:7px 0 9px;font-size:10.5px;font-weight:600;border-radius:0;text-align:center}
   .tabs > button{border:0}
-  .tabs .eqgroup{flex:1;padding:2px 3px;border:0}
+  .tabs button[aria-pressed="true"]{background:transparent;color:var(--green);font-weight:700}
+  .tabs button .icw{padding:3px 14px;border-radius:999px}
+  .tabs button[aria-pressed="true"] .icw{background:var(--green);color:#fff}
+  .tabs button svg{width:20px;height:20px}
+  .tl-long{display:none}
+  .tl-short{display:inline}
   .filters{padding:6px 14px}
   .filters-inner{gap:6px;padding-top:0}
 
@@ -278,13 +292,10 @@ footer button{border:0;background:none;color:var(--green);font-weight:700;paddin
 <div class="filters">
   <div class="filters-inner">
     <div class="tabs" role="tablist" id="tabbar">
-      <span class="eqgroup">
-        <button data-tab="equipment" aria-pressed="true">Equipment</button>
-        <button class="infoic" type="button" aria-label="About this equipment reference">i</button>
-      </span>
-      <button data-tab="rules" aria-pressed="false">Equipment Rules</button>
-      <button data-tab="tests" aria-pressed="false">Dressage Tests</button>
-      <button data-tab="dressage" aria-pressed="false">Dressage Rulebook</button>
+      <button data-tab="equipment" aria-pressed="true"><span class="icw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span><span class="tl-long">Equipment</span><span class="tl-short">Equipment</span></button>
+      <button data-tab="rules" aria-pressed="false"><span class="icw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span><span class="tl-long">Equipment Rules</span><span class="tl-short">Rules</span></button>
+      <button data-tab="tests" aria-pressed="false"><span class="icw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="18" rx="2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M8 11h8M8 15h8M8 19h5"/></svg></span><span class="tl-long">Dressage Tests</span><span class="tl-short">Tests</span></button>
+      <button data-tab="dressage" aria-pressed="false"><span class="icw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"/></svg></span><span class="tl-long">Dressage Rulebook</span><span class="tl-short">Rulebook</span></button>
     </div>
     <div class="statusrow">
       <div class="seg" role="group" aria-label="Filter by status" id="statusSeg">
@@ -293,6 +304,7 @@ footer button{border:0;background:none;color:var(--green);font-weight:700;paddin
         <button data-status="prohibited" aria-pressed="false"><span class="dot" style="background:var(--no)"></span>Prohibited</button>
         <button data-status="conditional" aria-pressed="false"><span class="dot" style="background:var(--cond)"></span>Conditional</button>
       </div>
+      <button class="infoic" id="infoicBtn" type="button" aria-label="About this equipment reference">i</button>
       <span class="countwrap"><span class="count" id="count"></span><span id="offline-status" hidden></span></span>
     </div>
     <div class="secrail" id="secrail"><div class="secrow" id="secrow" role="group" aria-label="Filter by section"></div></div>
@@ -443,12 +455,12 @@ function renderTests(){
 }
 
 document.getElementById('tabbar').addEventListener('click', e=>{
-  if(e.target.closest('.infoic')){ openAdvisory(); return; }
   const b = e.target.closest('button'); if(!b) return;
   state.tab = b.dataset.tab;
   document.querySelectorAll('#tabbar button').forEach(x=>x.setAttribute('aria-pressed', String(x===b)));
   const eq = state.tab==='equipment';
   document.querySelector('.statusrow .seg').style.display = eq?'flex':'none';
+  document.getElementById('infoicBtn').style.display = eq?'':'none';
   document.getElementById('secrow').style.display = eq?'flex':'none';
   document.getElementById('grid').hidden = !eq;
   document.getElementById('rulelist').hidden = state.tab!=='rules';
@@ -815,6 +827,7 @@ function openAdvisory(){
   document.getElementById('policyBtn3').onclick = openPolicy;
   modal.showModal();
 }
+document.getElementById('infoicBtn').onclick = openAdvisory;
 
 render();
 
@@ -866,7 +879,7 @@ if(location.search.indexOf('debug')>-1){
     '\npointer coarse: '+matchMedia('(pointer:coarse)').matches+
     '\nphone layout (<=600) active: '+matchMedia('(max-width:600px)').matches+
     '\nheader height: '+Math.round(document.querySelector('header').getBoundingClientRect().height)+'px'+
-    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v93';
+    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v94';
   document.body.appendChild(d);
 }
 
