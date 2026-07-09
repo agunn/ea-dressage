@@ -95,7 +95,7 @@ main{max-width:1100px;margin:0 auto;padding:18px 18px 60px}
 .tag.status.prohibited{background:var(--no)}
 .tag.status.conditional{background:var(--cond)}
 .tagsright{margin-left:auto;display:flex;gap:4px;align-items:center}
-.cbody .tag.rref{cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.cbody .tag.rref,.mrref{cursor:pointer;text-decoration:underline;text-underline-offset:2px}
 .tag.pen{background:var(--no-bg);color:var(--no)}
 .tag.pen.half{background:var(--cond-bg);color:var(--cond)}
 .tag.warm{background:#E4EDF5;color:#2B5B82}
@@ -756,11 +756,18 @@ function openItem(it){
       ${it.scope==='warm-up'?`<div class="lbl">Scope</div><p>Warm-up arena only — not permitted in the competition arena.</p>`:''}
       <div class="mmeta">
         <span class="tag sec">Section ${it.section} · ${esc(it.sectionName)}</span>
-        ${it.ruleRef?`<span class="tag rref">National Rules ${esc(it.ruleRef)}</span>`:''}
+        ${it.ruleRef?`<span class="tag rref mrref" role="button" title="Open this rule">National Rules ${esc(it.ruleRef)}</span>`:''}
         <span class="tag sec">${it.source==='rules'?'Source: National Rules Sec 5':'Source: Equipment Annex'}</span>
         ${it.updated?`<span class="tag sec">Ruling updated ${it.updated}</span>`:''}
       </div>
     </div>`;
+  const rp = mcontent.querySelector('.mrref');
+  if(rp) rp.onclick = ()=>{
+    const base = it.ruleRef.split(' ')[0];
+    const target = rulesTopics.find(r=>r.ref===base)
+      || rulesTopics.find(r=>r.ref===base.split('.').slice(0,2).join('.'));
+    if(target) openRule(target);
+  };
   modal.showModal();
 }
 
@@ -928,7 +935,7 @@ if(location.search.indexOf('debug')>-1){
     '\npointer coarse: '+matchMedia('(pointer:coarse)').matches+
     '\nphone layout (<=600) active: '+matchMedia('(max-width:600px)').matches+
     '\nheader height: '+Math.round(document.querySelector('header').getBoundingClientRect().height)+'px'+
-    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v97';
+    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v98';
   document.body.appendChild(d);
 }
 
