@@ -2541,7 +2541,10 @@ const EA_DATA = {
    "condition": null,
    "scope": "competition",
    "updated": null,
-   "images": [],
+   "images": [
+    "image218.jpg",
+    "image219.jpg"
+   ],
    "source": "rules",
    "ruleRef": "5.12"
   },
@@ -2557,7 +2560,10 @@ const EA_DATA = {
    "condition": null,
    "scope": "competition",
    "updated": null,
-   "images": [],
+   "images": [
+    "image218.jpg",
+    "image219.jpg"
+   ],
    "source": "rules",
    "ruleRef": "5.12"
   },
@@ -2573,7 +2579,9 @@ const EA_DATA = {
    "condition": null,
    "scope": "competition",
    "updated": null,
-   "images": [],
+   "images": [
+    "image220.jpg"
+   ],
    "source": "rules",
    "ruleRef": "5.11 / 5.12"
   },
@@ -2605,7 +2613,12 @@ const EA_DATA = {
    "condition": "Permitted at all levels. Compulsory in all tests up to and including Elementary; optional at Medium and above.",
    "scope": "competition",
    "updated": null,
-   "images": [],
+   "images": [
+    "image214.jpg",
+    "image215.jpg",
+    "image216.jpg",
+    "image217.jpg"
+   ],
    "source": "rules",
    "ruleRef": "5.11.3 / 5.12"
   },
@@ -2621,7 +2634,9 @@ const EA_DATA = {
    "condition": "Medium level & above, and 7yo Young Horse competitions. Cavesson noseband compulsory (lower flash strap not permitted). A double bridle with a pelham bit is not permitted in any test.",
    "scope": "competition",
    "updated": null,
-   "images": [],
+   "images": [
+    "image213.jpg"
+   ],
    "source": "rules",
    "ruleRef": "5.11.4 / 5.12"
   },
@@ -2829,7 +2844,9 @@ const EA_DATA = {
    "condition": "Ponies only (not in Young Horse competitions).",
    "scope": "competition",
    "updated": null,
-   "images": [],
+   "images": [
+    "image224.jpg"
+   ],
    "source": "rules",
    "ruleRef": "5.10 / 5.19"
   },
@@ -2842,10 +2859,14 @@ const EA_DATA = {
    "notes": "",
    "status": "permitted",
    "penalty": null,
-   "condition": "Compulsory: one on each side of the bridle or saddlecloth, clearly visible, whenever the horse is out of the stable.",
+   "condition": "Compulsory: one on each side of the bridle or saddlecloth, clearly visible, whenever the horse is out of the stable. Minimum height of numbers is 3.5-4 cm",
    "scope": "competition",
    "updated": null,
-   "images": [],
+   "images": [
+    "image221.jpg",
+    "image222.jpg",
+    "image223.jpg"
+   ],
    "source": "rules",
    "ruleRef": "5.19"
   },

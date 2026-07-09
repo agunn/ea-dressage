@@ -50,6 +50,10 @@ No test suite. Sanity-check with Node after data edits:
 Verify every `images[]` entry exists in `site/images/`. Keep total site
 size small (~3 MB) — images are pre-compressed to ≤700px JPEG q≈83.
 
+## Owner-approved wording amendments (differ from source documents)
+- 2026-07-09 r6-014 Horse identification numbers: appended "Minimum height
+  of numbers is 3.5-4 cm" to the condition, per EADC instruction via owner.
+
 ## Known open editorial items (owner to resolve)
 1. RESOLVED 2026-07-07: Throat lash — owner ruled National Rules 5.11 wording
    governs (throat latch required except combined noseband/Micklem bridle);

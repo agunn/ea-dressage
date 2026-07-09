@@ -68,6 +68,7 @@ header{background:var(--green);color:var(--cream);padding:calc(14px + env(safe-a
 .chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;font-size:13.5px;font-weight:600;color:var(--muted);white-space:nowrap}
 .chip[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}
 .secrail{position:relative}
+.secbreak{flex-basis:100%;height:0}
 
 /* ---------- grid ---------- */
 main{max-width:1100px;margin:0 auto;padding:18px 18px 60px}
@@ -105,7 +106,8 @@ main{max-width:1100px;margin:0 auto;padding:18px 18px 60px}
 .tabs{display:flex;gap:8px;margin-bottom:9px;justify-content:center}
 .tabs button{border:0;background:transparent;border-radius:9px;padding:7px 15px;font-size:14.5px;font-weight:700;color:var(--muted)}
 .tabs button[aria-pressed="true"]{background:var(--green);color:#fff}
-.tabs > button{border:1.5px solid var(--green);border-radius:13px}
+.tabs > button{border:0;border-radius:13px}
+@media (hover:hover){.tabs button:hover:not([aria-pressed="true"]){background:#E7E3D5}}
 .tabs button{display:inline-flex;align-items:center;gap:7px}
 .tabs button svg{width:16px;height:16px;flex:none}
 .icw{display:inline-flex;align-items:center;justify-content:center}
@@ -180,6 +182,16 @@ footer button{border:0;background:none;color:var(--green);font-weight:700;paddin
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 /* touch devices wider than a phone (iPads etc.): keep the roomy layout but
    dock the Equipment/Rules tabs to the bottom where thumbs can reach them */
+/* desktop/tablet: drill-down order (tabs > sections > status), filter cluster
+   constrained to roughly the tab row's footprint */
+@media (min-width:601px){
+  .filters-inner > .tabs{order:1}
+  .filters-inner > .secrail{order:2}
+  .filters-inner > .statusrow{order:3}
+  .secrail{width:fit-content;max-width:100%;margin:0 auto}
+  .statusrow{max-width:720px;margin:0 auto;width:100%}
+}
+
 @media (pointer:coarse) and (min-width:601px){
   .tabs{position:fixed;bottom:0;left:0;right:0;z-index:40;background:var(--panel);border-top:1px solid var(--line);margin:0;gap:0;padding:6px env(safe-area-inset-right) calc(6px + env(safe-area-inset-bottom)) env(safe-area-inset-left);justify-content:stretch;box-shadow:0 -2px 10px rgba(0,0,0,.08)}
   .tabs button{flex:1;flex-direction:column;gap:3px;padding:8px 0 10px;font-size:11px;font-weight:600;border-radius:0;text-align:center}
@@ -248,6 +260,7 @@ footer button{border:0;background:none;color:var(--green);font-weight:700;paddin
   .secrow{gap:4px;flex-wrap:nowrap;overflow-x:auto;padding-right:30px;justify-content:flex-start;scrollbar-width:none;-webkit-overflow-scrolling:touch}
   .secrow::-webkit-scrollbar{display:none}
   .secrow .chip{flex:none}
+  .secbreak{display:none}
   .secrail::before,.secrail::after{content:"";position:absolute;top:0;bottom:0;width:26px;pointer-events:none;opacity:0;transition:opacity .2s;z-index:2}
   .secrail::before{left:0;background:linear-gradient(to right,var(--paper),rgba(241,239,231,0))}
   .secrail::after{right:0;background:linear-gradient(to left,var(--paper),rgba(241,239,231,0))}
@@ -532,7 +545,10 @@ window.addEventListener('resize', updateRailFades);
 function renderChips(){
   secrow.innerHTML='';
   secrow.appendChild(secChip(0,'All sections'));
-  EA_DATA.sections.forEach(s=>secrow.appendChild(secChip(s.id, s.id+' · '+s.name)));
+  EA_DATA.sections.forEach(s=>{
+    secrow.appendChild(secChip(s.id, s.id+' · '+s.name));
+    if(s.id===4){ const br=document.createElement('span'); br.className='secbreak'; secrow.appendChild(br); }
+  });
   updateRailFades();
   const sel = secrow.querySelector('[aria-pressed="true"]');
   if(sel && secrow.scrollWidth > secrow.clientWidth) sel.scrollIntoView({inline:'nearest', block:'nearest'});
@@ -912,7 +928,7 @@ if(location.search.indexOf('debug')>-1){
     '\npointer coarse: '+matchMedia('(pointer:coarse)').matches+
     '\nphone layout (<=600) active: '+matchMedia('(max-width:600px)').matches+
     '\nheader height: '+Math.round(document.querySelector('header').getBoundingClientRect().height)+'px'+
-    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v96';
+    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v97';
   document.body.appendChild(d);
 }
 
