@@ -453,6 +453,31 @@ const PARA_TESTS = [
   ]},
 ];
 
+const YH_TESTS = [
+  { heading:"4-yr-old Horses/Ponies", items:[
+    {label:"EA YH test for 4 year olds (commanded)", url:"https://www.equestrian.org.au/sites/default/files/EA_4_yr_old_Commanded_Round_1_Test_4.pdf"},
+    {label:"FEI test for 4 year olds", url:"https://inside.fei.org/system/files/Young%20Horses%204%20YO%202022.pdf"},
+  ]},
+  { heading:"5-yr-old Horses/Ponies", items:[
+    {label:"EA YH test for 5 year olds (commanded)", url:"https://www.equestrian.org.au/sites/default/files/EA_5_yr_old_Commanded_Round_1_Test_0.pdf"},
+    {label:"FEI Preliminary test for 5 year olds", url:"https://inside.fei.org/system/files/Young%20Horses%205%20YO%20Preliminary%202022.pdf"},
+    {label:"FEI Final Test for 5 year olds (mandatory at AUS Ch)", url:"https://inside.fei.org/system/files/Young%20Horses%205%20YO%20Final%202022.pdf"},
+  ]},
+  { heading:"6-yr-old Horses", items:[
+    {label:"EA YH test for 6 year olds (commanded)", url:"https://www.equestrian.org.au/sites/default/files/EA_6_yr_old_Commanded_Round_1_Test_0.pdf"},
+    {label:"FEI Preliminary test for 6 year olds", url:"https://inside.fei.org/system/files/Young%20Horses%206%20YO%20Preliminary%202022.pdf"},
+    {label:"FEI Final Test for 6 year olds (mandatory at AUS Ch)", url:"https://inside.fei.org/system/files/Young%20Horses%206%20YO%20Final%202022.pdf"},
+  ]},
+  { heading:"6-yr-old Ponies", items:[
+    {label:"EA YH test for 6 year old ponies (commanded)", url:"https://www.equestrian.org.au/sites/default/files/EA_6yr_old_Pony_Commanded_Round_1_Test_0.pdf"},
+    {label:"EA Final Round test for 6 year old ponies", url:"https://www.equestrian.org.au/sites/default/files/EA_6_yr_old_Pony_Final_Test_0.pdf"},
+  ]},
+  { heading:"7-yr-old Horses", items:[
+    {label:"FEI Preliminary test for 7 year olds", url:"https://inside.fei.org/system/files/Young%20Horses%207%20YO%20Preliminary%202026.pdf"},
+    {label:"FEI Final test for 7 year olds", url:"https://inside.fei.org/system/files/Young%20Horses%207%20YO%20Final%202026.pdf"},
+  ]},
+];
+
 let testSub = 'ea';
 function testGroupsHTML(groups){
   return groups.map(g=>`<div class="testgroup"><h3>${esc(g.heading)}</h3>`+
@@ -461,8 +486,30 @@ function testGroupsHTML(groups){
 }
 function renderTests(){
   count.textContent=''; empty.hidden=true;
-  const para = testSub==='para';
-  let groups = para ? PARA_TESTS : DRESSAGE_TESTS;
+  const SUBS = {
+    ea:   { data: DRESSAGE_TESTS, intro: 'Official EA dressage tests, published by Equestrian Australia. Each opens the PDF on the EA website — requires an internet connection.' },
+    para: { data: PARA_TESTS, intro: 'Official EA Para Dressage tests, grouped by grade. Each opens the PDF on the EA website — requires an internet connection.' },
+    yh:   { data: YH_TESTS, intro: 'Official Young Horse and Young Pony tests. EA tests open on the EA website, FEI tests on the FEI website — requires an internet connection.' },
+  };
+  const subtabsHTML =
+    `<div class="subtabs">`+
+      `<button data-sub="ea" aria-pressed="${testSub==='ea'}">EA Dressage Tests</button>`+
+      `<button data-sub="para" aria-pressed="${testSub==='para'}">EA Para Dressage Tests</button>`+
+      `<button data-sub="yh" aria-pressed="${testSub==='yh'}">Young Horse Tests</button>`+
+      `<button data-sub="fei" aria-pressed="${testSub==='fei'}">FEI Tests</button>`+
+    `</div>`;
+  if(testSub==='fei'){
+    document.getElementById('dressagetests').innerHTML = subtabsHTML +
+      `<div class="extcard" style="max-width:620px;margin:14px auto">
+        <h2>FEI Dressage Tests</h2>
+        <p>The complete library of official FEI dressage tests, published by the Fédération Equestre Internationale.</p>
+        <a class="extbtn" href="https://inside.fei.org/fei/your-role/organisers/dressage/tests" target="_blank" rel="noopener">Open the FEI tests page ↗</a>
+        <p class="extnote">Opens on the FEI website — requires an internet connection.</p>
+      </div>`;
+    return;
+  }
+  const sub = SUBS[testSub] || SUBS.ea;
+  let groups = sub.data;
   if(state.q){
     const terms = state.q.split(/\s+/);
     groups = groups.map(g=>({heading:g.heading, items:g.items.filter(t=>{
@@ -470,15 +517,8 @@ function renderTests(){
       return terms.every(x=>hay.includes(x));
     })})).filter(g=>g.items.length);
   }
-  const intro = para
-    ? 'Official EA Para Dressage tests, grouped by grade. Each opens the PDF on the EA website — requires an internet connection.'
-    : 'Official EA dressage tests, published by Equestrian Australia. Each opens the PDF on the EA website — requires an internet connection.';
-  document.getElementById('dressagetests').innerHTML =
-    `<div class="subtabs">`+
-      `<button data-sub="ea" aria-pressed="${!para}">EA Dressage Tests</button>`+
-      `<button data-sub="para" aria-pressed="${para}">EA Para Dressage Tests</button>`+
-    `</div>`+
-    `<p class="testintro">${intro}</p>`+
+  document.getElementById('dressagetests').innerHTML = subtabsHTML +
+    `<p class="testintro">${sub.intro}</p>`+
     (groups.length ? testGroupsHTML(groups) : `<p class="testintro">No tests match your search.</p>`);
 }
 
@@ -935,7 +975,7 @@ if(location.search.indexOf('debug')>-1){
     '\npointer coarse: '+matchMedia('(pointer:coarse)').matches+
     '\nphone layout (<=600) active: '+matchMedia('(max-width:600px)').matches+
     '\nheader height: '+Math.round(document.querySelector('header').getBoundingClientRect().height)+'px'+
-    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v98';
+    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v100';
   document.body.appendChild(d);
 }
 
