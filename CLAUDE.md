@@ -53,6 +53,14 @@ size small (~3 MB) — images are pre-compressed to ≤700px JPEG q≈83.
 ## Owner-approved wording amendments (differ from source documents)
 - 2026-07-09 r6-014 Horse identification numbers: appended "Minimum height
   of numbers is 3.5-4 cm" to the condition, per EADC instruction via owner.
+- 2026-07-10 r6-015 "Equipment against the intent and general principles of
+  dressage" removed as an item card, per owner: it is a catch-all covering
+  the Section 6 prohibited items already displayed individually.
+
+- 2026-07-10 Title standardisation: all 93 corrections applied per committee
+  approval + owner rulings on the three held rows (s5-001 "Stock saddles",
+  s1-011 "Shaped sleeve", s1-014 "Various gags"). Pre-change titles in
+  tools/title-originals.json for selective rollback.
 
 ## Known open editorial items (owner to resolve)
 1. RESOLVED 2026-07-07: Throat lash — owner ruled National Rules 5.11 wording

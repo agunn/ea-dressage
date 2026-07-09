@@ -373,16 +373,6 @@ const items = EA_DATA.items;
 const rulesTopics = EA_DATA.rules||[];
 
 const DRESSAGE_TESTS = [
-  { heading:"Freestyle tests", items:[
-    {label:"2019 EA Novice Freestyle", url:"https://www.equestrian.org.au/sites/default/files/2019%20EA%20Novice%20Freestyle%20-%204-6-19_2.pdf"},
-    {label:"2019 EA Elementary Freestyle", url:"https://www.equestrian.org.au/sites/default/files/2019%20EA%20Elementary%20Freestyle%20-%2018-3-19.pdf"},
-    {label:"2019 EA Medium Freestyle", url:"https://www.equestrian.org.au/sites/default/files/2019%20EA%20Medium%20Freestyle%20-%2018-3-19.pdf"},
-    {label:"2019 EA Advanced Freestyle", url:"https://www.equestrian.org.au/sites/default/files/2019%20EA%20Advanced%20Freestyle%20-%2018-3-19.pdf"},
-  ]},
-  { heading:"Freestyle tests — effective 1 January 2021", items:[
-    {label:"Novice Freestyle - Final Eff. 1-1-21", url:"https://www.equestrian.org.au/sites/default/files/Novice%20Freestyle%20Eff.%201-1-21%20-%20Final%2012-11-20.pdf"},
-    {label:"Advanced Freestyle - Final Eff. 1-1-21", url:"https://www.equestrian.org.au/sites/default/files/Advanced%20Freestyle%20-%20Final%20Eff.%201-1-21.pdf"},
-  ]},
   { heading:"Preliminary tests", items:[
     {label:"2023 EA Preliminary 1.1 (1-1-23)", url:"https://www.equestrian.org.au/sites/default/files/1Jan2023%201.1.pdf"},
     {label:"2023 EA Preliminary 1.2 (1-1-23)", url:"https://www.equestrian.org.au/sites/default/files/1Jan2023%201.2.pdf"},
@@ -407,6 +397,16 @@ const DRESSAGE_TESTS = [
     {label:"2023 EA Advanced 5.1 (1-1-23)", url:"https://www.equestrian.org.au/sites/default/files/1Jan2023%205.1_0.pdf"},
     {label:"2023 EA Advanced 5.2 (1-1-23)", url:"https://www.equestrian.org.au/sites/default/files/1Jan2023%205.2_1.pdf"},
     {label:"2023 EA Advanced 5.3 - Amended 21 AUG 24", url:"https://www.equestrian.org.au/sites/default/files/2023%20EA%20Advanced%205.3%20-%20Amended%2021%20AUG%2024.pdf"},
+  ]},
+  { heading:"Freestyle tests", items:[
+    {label:"2019 EA Novice Freestyle", url:"https://www.equestrian.org.au/sites/default/files/2019%20EA%20Novice%20Freestyle%20-%204-6-19_2.pdf"},
+    {label:"2019 EA Elementary Freestyle", url:"https://www.equestrian.org.au/sites/default/files/2019%20EA%20Elementary%20Freestyle%20-%2018-3-19.pdf"},
+    {label:"2019 EA Medium Freestyle", url:"https://www.equestrian.org.au/sites/default/files/2019%20EA%20Medium%20Freestyle%20-%2018-3-19.pdf"},
+    {label:"2019 EA Advanced Freestyle", url:"https://www.equestrian.org.au/sites/default/files/2019%20EA%20Advanced%20Freestyle%20-%2018-3-19.pdf"},
+  ]},
+  { heading:"Freestyle tests — effective 1 January 2021", items:[
+    {label:"Novice Freestyle - Final Eff. 1-1-21", url:"https://www.equestrian.org.au/sites/default/files/Novice%20Freestyle%20Eff.%201-1-21%20-%20Final%2012-11-20.pdf"},
+    {label:"Advanced Freestyle - Final Eff. 1-1-21", url:"https://www.equestrian.org.au/sites/default/files/Advanced%20Freestyle%20-%20Final%20Eff.%201-1-21.pdf"},
   ]},
   { heading:"Preparatory tests", items:[
     {label:"2023 EA Prep Test 1 (1-1-23)", url:"https://www.equestrian.org.au/sites/default/files/1Jan2023%20Prep%201.pdf"},
@@ -975,7 +975,7 @@ if(location.search.indexOf('debug')>-1){
     '\npointer coarse: '+matchMedia('(pointer:coarse)').matches+
     '\nphone layout (<=600) active: '+matchMedia('(max-width:600px)').matches+
     '\nheader height: '+Math.round(document.querySelector('header').getBoundingClientRect().height)+'px'+
-    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v101';
+    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v102';
   document.body.appendChild(d);
 }
 
