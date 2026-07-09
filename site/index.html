@@ -63,9 +63,7 @@ header{background:var(--green);color:var(--cream);padding:calc(14px + env(safe-a
 .shareurl{text-align:center;font-weight:700;color:var(--green);margin:0 0 16px}
 .sharebtnrow{text-align:center;margin:0 0 6px}
 .sharebtn{border:0;background:var(--green);color:#fff;font-weight:700;font-size:15px;padding:12px 22px;border-radius:10px;cursor:pointer}
-#offline-status{font-size:11px;color:var(--muted);font-weight:600;white-space:nowrap}
-#offline-status.done{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:var(--ok);color:#fff;font-size:11px;line-height:1}
-.countwrap.compact{flex-basis:auto;width:auto;margin-left:6px}
+#offline-status{display:none}
 .secrow{display:flex;flex-wrap:wrap;gap:7px;padding-bottom:2px;justify-content:center}
 .chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;font-size:13.5px;font-weight:600;color:var(--muted);white-space:nowrap}
 .chip[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}
@@ -112,7 +110,9 @@ main{max-width:1100px;margin:0 auto;padding:18px 18px 60px}
 .tabs button svg{width:16px;height:16px;flex:none}
 .icw{display:inline-flex;align-items:center;justify-content:center}
 .tl-short{display:none}
-.infoic{flex:none;align-self:center;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;padding:0;border-radius:50%;background:var(--green);color:#fff;font-size:14px;font-weight:700;font-family:Georgia,serif;font-style:italic;line-height:1;border:0;cursor:pointer}
+.infoic{flex:none;align-self:center;position:relative;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;padding:0;border-radius:50%;background:var(--green);color:#fff;font-size:14px;font-weight:700;font-family:Georgia,serif;font-style:italic;line-height:1;border:0;cursor:pointer}
+.infoic.dl{background:conic-gradient(var(--ok) var(--p,0%), #C9CFC4 var(--p,0%))}
+.infoic.dl::before{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--green)}
 .rulecard{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;text-align:left;width:100%;display:flex;gap:12px;align-items:baseline;transition:transform .12s ease,box-shadow .12s ease}
 .rulecard:hover{transform:translateY(-1px);box-shadow:0 5px 14px rgba(34,39,31,.09)}
 .rulecard:focus-visible{outline:3px solid var(--green);outline-offset:2px}
@@ -449,7 +449,14 @@ function testGroupsHTML(groups){
 function renderTests(){
   count.textContent=''; empty.hidden=true;
   const para = testSub==='para';
-  const groups = para ? PARA_TESTS : DRESSAGE_TESTS;
+  let groups = para ? PARA_TESTS : DRESSAGE_TESTS;
+  if(state.q){
+    const terms = state.q.split(/\s+/);
+    groups = groups.map(g=>({heading:g.heading, items:g.items.filter(t=>{
+      const hay = (g.heading+' '+t.label).toLowerCase();
+      return terms.every(x=>hay.includes(x));
+    })})).filter(g=>g.items.length);
+  }
   const intro = para
     ? 'Official EA Para Dressage tests, grouped by grade. Each opens the PDF on the EA website — requires an internet connection.'
     : 'Official EA dressage tests, published by Equestrian Australia. Each opens the PDF on the EA website — requires an internet connection.';
@@ -459,7 +466,7 @@ function renderTests(){
       `<button data-sub="para" aria-pressed="${para}">EA Para Dressage Tests</button>`+
     `</div>`+
     `<p class="testintro">${intro}</p>`+
-    testGroupsHTML(groups);
+    (groups.length ? testGroupsHTML(groups) : `<p class="testintro">No tests match your search.</p>`);
 }
 
 document.getElementById('tabbar').addEventListener('click', e=>{
@@ -469,6 +476,10 @@ document.getElementById('tabbar').addEventListener('click', e=>{
   const eq = state.tab==='equipment';
   document.querySelector('.statusrow .seg').style.display = eq?'flex':'none';
   document.getElementById('infoicBtn').style.display = eq?'':'none';
+  document.querySelector('.searchwrap').style.display = state.tab==='dressage' ? 'none' : 'flex';
+  q.placeholder = state.tab==='tests' ? 'Search tests…'
+    : state.tab==='rules' ? 'Search rules…'
+    : (matchMedia('(max-width:600px)').matches ? 'Search equipment…' : 'Search equipment… e.g. baucher, micklem, spurs');
   document.getElementById('secrow').style.display = eq?'flex':'none';
   document.getElementById('grid').hidden = !eq;
   document.getElementById('rulelist').hidden = state.tab!=='rules';
@@ -842,6 +853,9 @@ function openAdvisory(){
       Dressage Rules provide clear guidelines as to the equipment permitted. Wherever possible, the EADC is guided by rulings
       from the EADC and FEI Equipment Committees.</p>
       <p>The EA Dressage Rules provide the governing guidelines. Read the <span class="rulelink" id="policyBtn3">EADC noseband policy</span>.</p>
+      ${window.__offline ? `<p style="color:var(--muted);font-size:13px">${window.__offline.done
+        ? '✓ Offline images ready — the app works without an internet connection.'
+        : 'Downloading images for offline use… '+window.__offline.got+' of '+window.__offline.total+' so far.'}</p>` : ''}
     </div>`;
   document.getElementById('policyBtn3').onclick = openPolicy;
   modal.showModal();
@@ -898,7 +912,7 @@ if(location.search.indexOf('debug')>-1){
     '\npointer coarse: '+matchMedia('(pointer:coarse)').matches+
     '\nphone layout (<=600) active: '+matchMedia('(max-width:600px)').matches+
     '\nheader height: '+Math.round(document.querySelector('header').getBoundingClientRect().height)+'px'+
-    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v95';
+    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v96';
   document.body.appendChild(d);
 }
 
@@ -916,20 +930,18 @@ if('caches' in window && location.protocol.startsWith('http')){
   async function offlineCheck(){
     const missing=[];
     for(const u of wanted){ if(!(await caches.match(u))) missing.push(u); }
-    osEl.hidden=false;
+    const ic = document.getElementById('infoicBtn');
+    const got = wanted.length - missing.length;
+    window.__offline = {done: !missing.length, got, total: wanted.length};
     if(!missing.length){
-      osEl.textContent='✓';
-      osEl.classList.add('done');
-      osEl.title='Offline ready — all images downloaded, the app works without internet';
-      osEl.setAttribute('aria-label', osEl.title);
-      osEl.parentElement.classList.add('compact');
+      ic.classList.remove('dl');
+      ic.title = 'About this equipment reference · Offline images ready';
       return;
     }
-    osEl.classList.remove('done');
-    osEl.parentElement.classList.remove('compact');
-    osEl.textContent='⬇ '+(wanted.length-missing.length)+' of '+wanted.length+' images'+
-      (navigator.onLine?'':' · paused');
-    osEl.title='Downloading images for offline use';
+    ic.classList.add('dl');
+    ic.style.setProperty('--p', Math.round(100*got/wanted.length)+'%');
+    ic.title = 'Downloading images for offline use — '+got+' of '+wanted.length+
+      (navigator.onLine?'':' (paused, offline)');
     if(navigator.onLine && !topup && navigator.serviceWorker.controller){
       topup=true;
       for(const u of missing){ try{ await fetch(u); }catch(e){ break; } }
