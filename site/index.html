@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>EA Dressage Equipment and Rules</title>
+<title>EA Dressage Equipment, Rules and Tests</title>
 <meta name="description" content="Searchable reference of permitted and prohibited dressage equipment — Equestrian Australia Dressage Equipment Annex.">
 <meta name="theme-color" content="#002942">
 <link rel="manifest" href="manifest.json">
@@ -202,6 +202,14 @@ footer button{border:0;background:none;color:var(--green);font-weight:700;paddin
   .brandlogo{position:absolute;top:2px;left:0;height:56px}
   .brandlogo-r{left:auto;right:0}
   .mast{padding-left:70px;padding-right:62px}
+
+  /* collapsing header: title/logos fold away on scroll, search bar stays pinned */
+  header{position:sticky;top:0;z-index:35}
+  .mast{max-height:220px;overflow:hidden;transition:max-height .3s ease,opacity .2s ease}
+  .brandlogo{transition:opacity .2s ease}
+  header.condensed .mast{max-height:0;opacity:0}
+  header.condensed .brandlogo{opacity:0;pointer-events:none}
+  .filters{top:calc(64px + env(safe-area-inset-top))}
   .mast h1{font-size:20px;white-space:normal;overflow:visible;text-overflow:clip}
   .mast .meta{font-size:11.5px;margin:2px 0 8px}
   .searchwrap{padding-bottom:10px}
@@ -274,7 +282,7 @@ footer button{border:0;background:none;color:var(--green);font-weight:700;paddin
     <div class="headcol">
       <div class="mast">
         <div class="kicker">Equestrian Australia</div>
-        <h1>Dressage Rules, Equipment and Tests</h1>
+        <h1>Dressage Equipment, Rules and Tests</h1>
         <div class="meta" id="metaline"></div>
       </div>
       <div class="searchwrap">
@@ -474,6 +482,17 @@ document.getElementById('dressagetests').addEventListener('click', e=>{
   const b = e.target.closest('[data-sub]'); if(!b) return;
   testSub = b.dataset.sub; renderTests();
 });
+
+if(matchMedia('(max-width:600px)').matches) document.getElementById('q').placeholder = 'Search equipment…';
+
+/* collapsing header (phone): fold the title away after a deliberate scroll,
+   restore near the top — thresholds far apart to avoid flutter */
+const headerEl = document.querySelector('header');
+window.addEventListener('scroll', ()=>{
+  const y = window.scrollY;
+  if(y > 120) headerEl.classList.add('condensed');
+  else if(y < 10) headerEl.classList.remove('condensed');
+}, {passive:true});
 
 const isInstalled = matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
 document.getElementById('metaline').innerHTML = 'Effective ' + esc(EA_DATA.meta.effective) +
@@ -781,7 +800,7 @@ function openShare(){
     const b=document.createElement('button');
     b.className='sharebtn';
     b.textContent='Share the link…';
-    b.onclick=()=>{ navigator.share({title:'EA Dressage Rules, Equipment and Tests',
+    b.onclick=()=>{ navigator.share({title:'EA Dressage Equipment, Rules and Tests',
       text:'Searchable EA dressage equipment and rules — install it on your phone:',
       url:'https://ea-dressage.eq-au.workers.dev/'}).catch(()=>{}); };
     document.getElementById('sharerow').appendChild(b);
@@ -879,7 +898,7 @@ if(location.search.indexOf('debug')>-1){
     '\npointer coarse: '+matchMedia('(pointer:coarse)').matches+
     '\nphone layout (<=600) active: '+matchMedia('(max-width:600px)').matches+
     '\nheader height: '+Math.round(document.querySelector('header').getBoundingClientRect().height)+'px'+
-    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v94';
+    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v95';
   document.body.appendChild(d);
 }
 
