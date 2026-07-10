@@ -1099,7 +1099,8 @@ const EA_DATA = {
    "scope": "competition",
    "updated": null,
    "images": [
-    "image95.jpg"
+    "image95.jpg",
+    "image97.jpg"
    ],
    "source": "annex",
    "ruleRef": null
@@ -1118,24 +1119,6 @@ const EA_DATA = {
    "updated": null,
    "images": [
     "image96.jpg"
-   ],
-   "source": "annex",
-   "ruleRef": null
-  },
-  {
-   "id": "s3-005",
-   "section": 3,
-   "sectionName": "Bridles & Nosebands",
-   "title": "PS of Sweden noseband (with throat lash)",
-   "description": "",
-   "notes": "",
-   "status": "permitted",
-   "penalty": null,
-   "condition": null,
-   "scope": "competition",
-   "updated": null,
-   "images": [
-    "image97.jpg"
    ],
    "source": "annex",
    "ruleRef": null
@@ -2932,7 +2915,8 @@ const EA_DATA = {
    "updated": null,
    "images": [
     "image241.jpg",
-    "image242.jpg"
+    "image242.jpg",
+    "image247.jpg"
    ],
    "source": "rules",
    "ruleRef": "5.12"
@@ -2949,7 +2933,9 @@ const EA_DATA = {
    "condition": null,
    "scope": "competition",
    "updated": null,
-   "images": [],
+   "images": [
+    "image248.jpg"
+   ],
    "source": "rules",
    "ruleRef": "5.10.1 / 5.12"
   }
