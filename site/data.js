@@ -2712,7 +2712,10 @@ const EA_DATA = {
    "condition": "All levels.",
    "scope": "competition",
    "updated": null,
-   "images": [],
+   "images": [
+    "image250.jpg",
+    "image251.jpg"
+   ],
    "source": "rules",
    "ruleRef": "5.12"
   },
@@ -2754,10 +2757,28 @@ const EA_DATA = {
    "ruleRef": "5.12"
   },
   {
+   "id": "r6-007b",
+   "section": 6,
+   "sectionName": "Additional Equipment & Accessories",
+   "title": "Monkey grip",
+   "description": "",
+   "notes": "",
+   "status": "prohibited",
+   "penalty": null,
+   "condition": null,
+   "scope": "competition",
+   "updated": null,
+   "images": [
+    "image249.jpg"
+   ],
+   "source": "rules",
+   "ruleRef": "5.12"
+  },
+  {
    "id": "r6-008",
    "section": 6,
    "sectionName": "Additional Equipment & Accessories",
-   "title": "Neck straps",
+   "title": "Neck straps (must not be attached to the saddle)",
    "description": "",
    "notes": "",
    "status": "permitted",
@@ -2821,7 +2842,9 @@ const EA_DATA = {
    "updated": null,
    "images": [
     "image235.jpg",
-    "image246.jpg"
+    "image246.jpg",
+    "image252.jpg",
+    "image253.jpg"
    ],
    "source": "rules",
    "ruleRef": "5.6 / 5.12"
