@@ -2842,9 +2842,9 @@ const EA_DATA = {
    "updated": null,
    "images": [
     "image235.jpg",
-    "image246.jpg",
+    "image253.jpg",
     "image252.jpg",
-    "image253.jpg"
+    "image246.jpg"
    ],
    "source": "rules",
    "ruleRef": "5.6 / 5.12"

@@ -12,3 +12,6 @@ source-docs/
 
 # Local restore-point backups — never deploy or publish
 _restore-points/
+
+# stray sed backups
+*.bak
