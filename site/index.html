@@ -491,10 +491,12 @@ function renderTests(){
     para: { data: PARA_TESTS, intro: 'Official EA Para Dressage tests, grouped by grade. Each opens the PDF on the EA website — requires an internet connection.' },
     yh:   { data: YH_TESTS, intro: 'Official Young Horse and Young Pony tests. EA tests open on the EA website, FEI tests on the FEI website — requires an internet connection.' },
   };
+  const SHOW_PARA = false; // temporarily hidden — set true to reinstate the Para Dressage Tests sub-tab
+  if(testSub==='para' && !SHOW_PARA) testSub='ea';
   const subtabsHTML =
     `<div class="subtabs">`+
       `<button data-sub="ea" aria-pressed="${testSub==='ea'}">EA Dressage Tests</button>`+
-      `<button data-sub="para" aria-pressed="${testSub==='para'}">EA Para Dressage Tests</button>`+
+      (SHOW_PARA ? `<button data-sub="para" aria-pressed="${testSub==='para'}">EA Para Dressage Tests</button>` : ``)+
       `<button data-sub="yh" aria-pressed="${testSub==='yh'}">Young Horse Tests</button>`+
       `<button data-sub="fei" aria-pressed="${testSub==='fei'}">FEI Tests</button>`+
     `</div>`;
@@ -975,7 +977,7 @@ if(location.search.indexOf('debug')>-1){
     '\npointer coarse: '+matchMedia('(pointer:coarse)').matches+
     '\nphone layout (<=600) active: '+matchMedia('(max-width:600px)').matches+
     '\nheader height: '+Math.round(document.querySelector('header').getBoundingClientRect().height)+'px'+
-    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v105';
+    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v106';
   document.body.appendChild(d);
 }
 
