@@ -136,7 +136,7 @@ note("Updates take care of themselves",
 
 note("What's inside",
      ["Equipment — searchable permitted / prohibited / conditional gear with photos.  Equipment Rules — the rule text.",
-      "Dressage Tests — every EA and Para test sheet.  Dressage Rulebook — the official National Dressage Rules.",
+      "Dressage Tests — EA, Young Horse and FEI test sheets.  Dressage Rulebook — the official National Dressage Rules.",
       "(Tests and Rulebook open on the EA website, so those two need an internet connection.)"])
 
 # ---------- footer ----------

@@ -61,8 +61,9 @@ header{background:var(--green);color:var(--cream);padding:calc(14px + env(safe-a
 @media (display-mode: standalone){#installBtn{display:none}}
 .shareqr{display:block;width:min(70vw,260px);margin:14px auto 6px;border:1px solid var(--line);border-radius:10px;padding:10px;background:#fff}
 .shareurl{text-align:center;font-weight:700;color:var(--green);margin:0 0 16px}
-.sharebtnrow{text-align:center;margin:0 0 6px}
+.sharebtnrow{text-align:center;margin:0 0 10px}
 .sharebtn{border:0;background:var(--green);color:#fff;font-weight:700;font-size:15px;padding:12px 22px;border-radius:10px;cursor:pointer}
+.sharebtn-alt{background:#fff;color:var(--green);border:2px solid var(--green)}
 #offline-status{display:none}
 .secrow{display:flex;flex-wrap:wrap;gap:7px;padding-bottom:2px;justify-content:center}
 .chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;font-size:13.5px;font-weight:600;color:var(--muted);white-space:nowrap}
@@ -848,8 +849,8 @@ function openInstall(){
         <li>Samsung Internet works too — look for <strong>Add page to → Home screen</strong>.</li>
       </ul>
       <div class="lbl">First launch</div>
-      <p>Stay online for a minute while the rule images download — “✓ offline images ready” appears under the
-      filters when finished. From then on the app works fully offline, even with no signal at the arena.</p>
+      <p>Stay online for a minute on first use while the rule images download in the background. From then on
+      the app works fully offline, even with no signal at the arena.</p>
       <div class="lbl">Updates</div>
       <p>When anything changes the app shows “New version available — tap to update”. One tap and you're current.</p>
       <p><a href="install-guide.pdf" target="_blank" rel="noopener">Print or share the guide (PDF)</a> — includes a QR code that opens this site.</p>
@@ -868,9 +869,8 @@ function openShare(){
       <img class="shareqr" src="images/app-qr.png" alt="QR code for ea-dressage.eq-au.workers.dev">
       <p class="shareurl">ea-dressage.eq-au.workers.dev</p>
       <div class="sharebtnrow" id="sharerow"></div>
-      <p style="text-align:center">Or show them the
-      <span class="rulelink" id="guideView">printable install guide</span> —
-      it has the same QR code plus step-by-step instructions.</p>
+      <div class="sharebtnrow"><button class="sharebtn sharebtn-alt" id="guideView">Printable install guide</button></div>
+      <p style="text-align:center;color:var(--muted);font-size:13px;margin:2px 0 0">Same QR code plus step-by-step instructions — to show or send.</p>
     </div>`;
   if(navigator.share){
     const b=document.createElement('button');
@@ -977,7 +977,7 @@ if(location.search.indexOf('debug')>-1){
     '\npointer coarse: '+matchMedia('(pointer:coarse)').matches+
     '\nphone layout (<=600) active: '+matchMedia('(max-width:600px)').matches+
     '\nheader height: '+Math.round(document.querySelector('header').getBoundingClientRect().height)+'px'+
-    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v106';
+    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v107';
   document.body.appendChild(d);
 }
 
