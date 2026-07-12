@@ -127,9 +127,9 @@ def note(title, lines):
         c.drawString(MARGIN, ny - 15 - i*13, ln)
     ny -= 15 + 13*len(lines) + 14
 
-note("First launch — let it pack its bags",
-     ["Stay on Wi-Fi for a minute while every rule image downloads. The line under the filter buttons reads",
-      "“offline images ready” when finished. From then on it works fully offline — even with no signal at the arena."])
+note("First launch",
+     ["Stay on Wi-Fi for a minute on first use while the rule images download in the background.",
+      "From then on it works fully offline — even with no signal at the arena."])
 
 note("Updates take care of themselves",
      ["When anything changes, the app shows “New version available — tap to update”. One tap and you're current."])
