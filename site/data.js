@@ -2751,7 +2751,7 @@ const EA_DATA = {
    "scope": "competition",
    "updated": null,
    "images": [
-    "image231.jpg"
+    "image254.jpg"
    ],
    "source": "rules",
    "ruleRef": "5.12"
