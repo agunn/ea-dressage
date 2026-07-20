@@ -1,4 +1,4 @@
-const CACHE = 'ea-equipment-v111';
+const CACHE = 'ea-equipment-v112';
 const SHELL = ['./', './index.html', './data.js', './manifest.json', './icon-192.png', './icon-512.png', './install-guide.pdf', './images/app-qr.png', './images/install-guide.jpg'];
 
 // Derive the full image list from the data file so everything is available
@@ -27,6 +27,7 @@ self.addEventListener('activate', e => {
 });
 // Cache-first for images; network-first for the shell so content edits propagate
 self.addEventListener('fetch', e => {
+  if (e.request.method !== 'GET') return; // analytics beacon POSTs etc. go straight to network
   const url = new URL(e.request.url);
   if (url.pathname.includes('/images/')) {
     e.respondWith(
