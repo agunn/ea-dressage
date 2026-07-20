@@ -84,6 +84,8 @@ on the preview pane (it can't render the logo images).
 - 2026-07-10 r6-015 "Equipment against the intent and general principles of
   dressage" removed as an item card, per owner: a catch-all covering the
   Section 6 prohibited items already displayed individually.
+- 2026-07-20 s2-021 renamed "Beris Mullen straight bar" → "Ridged Mullen
+  mouths" per owner (committee instruction); second image added (image256).
 - 2026-07-10 Title standardisation: all 93 corrections applied per committee
   approval + owner rulings on the three held rows (s5-001 "Stock saddles",
   s1-011 "Shaped sleeve", s1-014 "Various gags"). Pre-change titles in

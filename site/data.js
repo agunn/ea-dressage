@@ -715,7 +715,7 @@ const EA_DATA = {
    "id": "s2-021",
    "section": 2,
    "sectionName": "Bits & Mouthpieces",
-   "title": "Beris Mullen straight bar",
+   "title": "Ridged Mullen mouths",
    "description": "(Bits must have a smooth surface.)",
    "notes": "",
    "status": "prohibited",
@@ -724,7 +724,8 @@ const EA_DATA = {
    "scope": "competition",
    "updated": null,
    "images": [
-    "image58.jpg"
+    "image58.jpg",
+    "image256.jpg"
    ],
    "source": "annex",
    "ruleRef": null
