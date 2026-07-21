@@ -1,4 +1,4 @@
-const CACHE = 'ea-equipment-v117';
+const CACHE = 'ea-equipment-v118';
 const SHELL = ['./', './index.html', './data.js', './manifest.json', './icon-192.png', './icon-512.png', './install-guide.pdf', './images/app-qr.png', './images/install-guide.jpg'];
 // Hosted rulebook PDFs (site/docs/) are fetched by the page's top-up loop
 // after activation rather than during install, so install stays fast and
@@ -17,10 +17,28 @@ try {
   IMAGES = [...s];
 } catch (e) { /* shell precache still works; images fall back to on-demand caching */ }
 
+// Cloudflare 307-redirects /index.html to /, and a cached redirect-tainted
+// response is rejected for app-launch navigations — store shell entries as
+// clean 200s so offline launches always work.
+async function cleanPut(c, u){
+  const res = await fetch(u);
+  if(!res.ok) throw new Error('precache failed: ' + u);
+  if(res.redirected){
+    const b = await res.blob();
+    return c.put(u, new Response(b, {status: 200, headers: res.headers}));
+  }
+  return c.put(u, res);
+}
+function unpoison(res, req){
+  if(res && res.redirected && req.mode === 'navigate'){
+    return res.blob().then(b => new Response(b, {status: 200, headers: res.headers}));
+  }
+  return res;
+}
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c =>
     // Shell must succeed; images are best-effort so one bad file can't block install
-    c.addAll(SHELL).then(() => Promise.allSettled(IMAGES.map(u => c.add(u))))
+    Promise.all(SHELL.map(u => cleanPut(c, u))).then(() => Promise.allSettled(IMAGES.map(u => c.add(u))))
   ).then(() => self.skipWaiting()));
 });
 self.addEventListener('activate', e => {
@@ -35,23 +53,23 @@ self.addEventListener('fetch', e => {
   if (url.pathname.includes('/images/')) {
     e.respondWith(
       caches.match(e.request).then(hit => hit || fetch(e.request).then(res => {
-        const copy = res.clone();
-        caches.open(CACHE).then(c => c.put(e.request, copy));
+        if (res.ok) { const copy = res.clone(); caches.open(CACHE).then(c => c.put(e.request, copy)); }
         return res;
       }))
     );
   } else {
     e.respondWith(
       fetch(e.request).then(res => {
-        const copy = res.clone();
-        caches.open(CACHE).then(c => c.put(e.request, copy));
+        // only cache good responses — never redirects or error pages
+        if (res.ok && !res.redirected) { const copy = res.clone(); caches.open(CACHE).then(c => c.put(e.request, copy)); }
         return res;
       }).catch(() => caches.match(e.request).then(hit =>
         // offline app launch must never dead-end: any navigation falls back
-        // to the cached shell even if its exact URL variant isn't cached
-        hit || (e.request.mode === 'navigate'
-          ? caches.match('./index.html', {ignoreSearch: true})
-          : undefined)
+        // to the cached shell, with redirect taint stripped
+        hit ? unpoison(hit, e.request)
+            : (e.request.mode === 'navigate'
+              ? caches.match('./index.html', {ignoreSearch: true}).then(h => h && unpoison(h, e.request))
+              : undefined)
       ))
     );
   }

@@ -2,7 +2,7 @@
   "name": "EA Dressage Equipment, Rules and Tests",
   "short_name": "EA Equipment",
   "description": "Searchable reference of permitted and prohibited dressage equipment",
-  "start_url": "./index.html",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#F1EFE7",
   "theme_color": "#002942",
