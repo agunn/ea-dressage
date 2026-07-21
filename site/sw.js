@@ -1,4 +1,4 @@
-const CACHE = 'ea-equipment-v116';
+const CACHE = 'ea-equipment-v117';
 const SHELL = ['./', './index.html', './data.js', './manifest.json', './icon-192.png', './icon-512.png', './install-guide.pdf', './images/app-qr.png', './images/install-guide.jpg'];
 // Hosted rulebook PDFs (site/docs/) are fetched by the page's top-up loop
 // after activation rather than during install, so install stays fast and
@@ -46,7 +46,13 @@ self.addEventListener('fetch', e => {
         const copy = res.clone();
         caches.open(CACHE).then(c => c.put(e.request, copy));
         return res;
-      }).catch(() => caches.match(e.request))
+      }).catch(() => caches.match(e.request).then(hit =>
+        // offline app launch must never dead-end: any navigation falls back
+        // to the cached shell even if its exact URL variant isn't cached
+        hit || (e.request.mode === 'navigate'
+          ? caches.match('./index.html', {ignoreSearch: true})
+          : undefined)
+      ))
     );
   }
 });
