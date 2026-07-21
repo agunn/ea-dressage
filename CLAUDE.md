@@ -30,6 +30,15 @@ force it directly:
 `CLOUDFLARE_API_TOKEN=$(cat ~/.cf-token) CLOUDFLARE_ACCOUNT_ID=45afe5b260e6420f0db6c85fe07ff11e npx wrangler deploy`
 Owner publishes only on explicit request — edits wait on the NAS until then.
 
+**Staging** (manual only, never via git push): `ea-dressage-staging2.eq-au.workers.dev`
+— same account, deployed with the command above plus `--name ea-dressage-staging2`
+(the original `-staging` worker was deleted after Chrome soured on its
+half-set-up first minutes; index.html swaps to manifest-staging.json on
+any hostname containing `-staging`, naming the install "EA Staging").
+When the owner says "stage it", deploy the current NAS `site/` there (uncommitted
+is fine; that's the point) for on-device testing before a real publish. Staging
+installs on devices are separate apps from production ones.
+
 ## Golden rules
 - `site/` must remain deployable as-is on any static host and keep working
   when opened directly from `file://` (data is a JS file, not fetched JSON —
