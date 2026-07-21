@@ -981,6 +981,35 @@ if('serviceWorker' in navigator && location.protocol.startsWith('http')){
   }
 }
 
+/* iOS installed-app quirk: our own PDFs replace the app view, which has no
+   back control — show a how-to-get-back tip before opening. Android has a
+   system back gesture and browsers have tabs, so only iOS standalone needs it. */
+(function(){
+  const standalone = navigator.standalone || matchMedia('(display-mode: standalone)').matches;
+  const ios = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+              (navigator.maxTouchPoints > 1 && /Mac/.test(navigator.platform));
+  if(!(standalone && ios)) return;
+  document.querySelectorAll('a[href^="docs/"]').forEach(a=>{
+    a.addEventListener('click', e=>{
+      e.preventDefault();
+      const ov=document.createElement('div');
+      ov.style.cssText='position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:24px';
+      ov.innerHTML=
+        '<div style="background:var(--panel);border-radius:14px;max-width:340px;padding:24px 22px;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,.3)">'+
+        '<h3 style="margin:0 0 10px;color:var(--green);font-size:18px">Coming back to the app</h3>'+
+        '<p style="margin:0 0 18px;color:var(--ink);line-height:1.5;font-size:15px">After reading, <strong>swipe in from the left edge of the screen</strong> to return here.</p>'+
+        '<button class="sharebtn" data-go>Open the PDF</button>'+
+        '<div style="margin-top:12px"><button class="sharebtn sharebtn-alt" data-cancel style="padding:9px 18px;font-size:14px">Cancel</button></div>'+
+        '</div>';
+      ov.addEventListener('click', ev=>{
+        if(ev.target===ov || ev.target.hasAttribute('data-cancel')) ov.remove();
+        else if(ev.target.hasAttribute('data-go')){ ov.remove(); location.href=a.getAttribute('href'); }
+      });
+      document.body.appendChild(ov);
+    });
+  });
+})();
+
 /* temporary device diagnostics: open the site with ?debug appended */
 if(location.search.indexOf('debug')>-1){
   const d=document.createElement('div');
@@ -992,7 +1021,7 @@ if(location.search.indexOf('debug')>-1){
     '\npointer coarse: '+matchMedia('(pointer:coarse)').matches+
     '\nphone layout (<=600) active: '+matchMedia('(max-width:600px)').matches+
     '\nheader height: '+Math.round(document.querySelector('header').getBoundingClientRect().height)+'px'+
-    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v114';
+    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v115';
   document.body.appendChild(d);
 }
 

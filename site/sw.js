@@ -1,4 +1,4 @@
-const CACHE = 'ea-equipment-v114';
+const CACHE = 'ea-equipment-v115';
 const SHELL = ['./', './index.html', './data.js', './manifest.json', './icon-192.png', './icon-512.png', './install-guide.pdf', './images/app-qr.png', './images/install-guide.jpg'];
 // Hosted rulebook PDFs (site/docs/) are fetched by the page's top-up loop
 // after activation rather than during install, so install stays fast and
