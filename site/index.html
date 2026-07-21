@@ -211,6 +211,17 @@ footer button{border:0;background:none;color:var(--green);font-weight:700;paddin
   main{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
   footer{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
   #updbar{bottom:calc(92px + env(safe-area-inset-bottom))}
+  /* match the phone's filter order: status row above the section chips */
+  .filters-inner > .statusrow{order:2}
+  .filters-inner > .secrail{order:3}
+  /* collapsing header as on phones: title/logos fold away on scroll so the
+     search bar stays pinned (logos are in-flow here, so collapse their height) */
+  header{position:sticky;top:0;z-index:35}
+  .mast{max-height:220px;overflow:hidden;transition:max-height .3s ease,opacity .2s ease}
+  .brandlogo{transition:opacity .2s ease,height .3s ease}
+  header.condensed .mast{max-height:0;opacity:0}
+  header.condensed .brandlogo{height:0;opacity:0;pointer-events:none}
+  .filters{top:calc(74px + env(safe-area-inset-top))}
   /* single-row scrollable chip rail as on phones — nine wrapped chips
      stacked three rows deep on smaller tablets */
   .secrow{flex-wrap:nowrap;overflow-x:auto;padding-right:30px;justify-content:flex-start;scrollbar-width:none;-webkit-overflow-scrolling:touch}
@@ -1034,7 +1045,7 @@ if(location.search.indexOf('debug')>-1){
     '\npointer coarse: '+matchMedia('(pointer:coarse)').matches+
     '\nphone layout (<=600) active: '+matchMedia('(max-width:600px)').matches+
     '\nheader height: '+Math.round(document.querySelector('header').getBoundingClientRect().height)+'px'+
-    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v119';
+    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v120';
   document.body.appendChild(d);
 }
 
