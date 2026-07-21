@@ -992,7 +992,7 @@ if(location.search.indexOf('debug')>-1){
     '\npointer coarse: '+matchMedia('(pointer:coarse)').matches+
     '\nphone layout (<=600) active: '+matchMedia('(max-width:600px)').matches+
     '\nheader height: '+Math.round(document.querySelector('header').getBoundingClientRect().height)+'px'+
-    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v113';
+    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v114';
   document.body.appendChild(d);
 }
 
@@ -1005,6 +1005,8 @@ if('caches' in window && location.protocol.startsWith('http')){
     (EA_DATA.rules||[]).forEach(r=>(r.images||[]).forEach(o=>s.add('images/'+(o.src||o))));
     (EA_DATA.galleries||[]).forEach(g=>(g.images||[]).forEach(o=>s.add('images/'+(o.src||o))));
     if(EA_DATA.policy&&EA_DATA.policy.images)EA_DATA.policy.images.forEach(o=>s.add('images/'+(o.src||o)));
+    // hosted rulebook PDFs — cached via the top-up below, not the SW install
+    document.querySelectorAll('a[href^="docs/"]').forEach(a=>s.add(a.getAttribute('href')));
     return [...s];})();
   let topup=false;
   async function offlineCheck(){
@@ -1012,15 +1014,18 @@ if('caches' in window && location.protocol.startsWith('http')){
     for(const u of wanted){ if(!(await caches.match(u))) missing.push(u); }
     const ic = document.getElementById('infoicBtn');
     const got = wanted.length - missing.length;
-    window.__offline = {done: !missing.length, got, total: wanted.length};
-    if(!missing.length){
+    // "ready" requires every file cached AND the service worker controlling
+    // the page — cached files are unreachable offline until it takes over
+    const controlled = !!(navigator.serviceWorker&&navigator.serviceWorker.controller);
+    window.__offline = {done: !missing.length&&controlled, got, total: wanted.length};
+    if(!missing.length && controlled){
       ic.classList.remove('dl');
       ic.title = 'About this equipment reference · Offline images ready';
       return;
     }
     ic.classList.add('dl');
     ic.style.setProperty('--p', Math.round(100*got/wanted.length)+'%');
-    ic.title = 'Downloading images for offline use — '+got+' of '+wanted.length+
+    ic.title = 'Downloading for offline use — '+got+' of '+wanted.length+
       (navigator.onLine?'':' (paused, offline)');
     if(navigator.onLine && !topup && navigator.serviceWorker.controller){
       topup=true;
