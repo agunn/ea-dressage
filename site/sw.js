@@ -1,5 +1,8 @@
-const CACHE = 'ea-equipment-v112';
+const CACHE = 'ea-equipment-v113';
 const SHELL = ['./', './index.html', './data.js', './manifest.json', './icon-192.png', './icon-512.png', './install-guide.pdf', './images/app-qr.png', './images/install-guide.jpg'];
+// Hosted rulebook PDFs — precached best-effort so they open offline;
+// network-first on fetch keeps them current whenever there is a connection
+const DOCS = ['./docs/section-9-young-horse-pony.pdf', './docs/section-12-judges-stewards.pdf', './docs/annex-e-elimination-penalties.pdf', './docs/annex-g-organisers.pdf', './docs/annex-h-event-categories.pdf'];
 
 // Derive the full image list from the data file so everything is available
 // offline after install (importScripts is synchronous in the SW scope).
@@ -17,7 +20,7 @@ try {
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c =>
     // Shell must succeed; images are best-effort so one bad file can't block install
-    c.addAll(SHELL).then(() => Promise.allSettled(IMAGES.map(u => c.add(u))))
+    c.addAll(SHELL).then(() => Promise.allSettled([...IMAGES, ...DOCS].map(u => c.add(u))))
   ).then(() => self.skipWaiting()));
 });
 self.addEventListener('activate', e => {
