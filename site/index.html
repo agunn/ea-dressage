@@ -214,9 +214,10 @@ footer button{border:0;background:none;color:var(--green);font-weight:700;paddin
   /* match the phone's filter order: status row above the section chips */
   .filters-inner > .statusrow{order:2}
   .filters-inner > .secrail{order:3}
-  /* breathing room below the header band, taken out of the row gap */
-  .filters{padding:13px 18px 10px}
-  .filters-inner{gap:6px}
+  /* scrolled state: pinned search directly above — give the status row
+     3px more air, taken from the gap to the section rail */
+  header.condensed + .filters{padding-top:13px}
+  header.condensed + .filters .filters-inner{gap:6px}
   /* collapsing header as on phones: title/logos fold away on scroll so the
      search bar stays pinned (logos are in-flow here, so collapse their height) */
   header{position:sticky;top:0;z-index:35}
@@ -269,8 +270,12 @@ footer button{border:0;background:none;color:var(--green);font-weight:700;paddin
   .tabs button svg{width:20px;height:20px}
   .tl-long{display:none}
   .tl-short{display:inline}
-  .filters{padding:9px 14px 6px}
-  .filters-inner{gap:3px;padding-top:0}
+  .filters{padding:6px 14px}
+  .filters-inner{gap:6px;padding-top:0}
+  /* scrolled state: pinned search directly above — give the status row
+     3px more air, taken from the gap to the section rail */
+  header.condensed + .filters{padding-top:9px}
+  header.condensed + .filters .filters-inner{gap:3px}
 
   /* grid */
   .grid{grid-template-columns:repeat(2,1fr);gap:6px}
@@ -1048,7 +1053,7 @@ if(location.search.indexOf('debug')>-1){
     '\npointer coarse: '+matchMedia('(pointer:coarse)').matches+
     '\nphone layout (<=600) active: '+matchMedia('(max-width:600px)').matches+
     '\nheader height: '+Math.round(document.querySelector('header').getBoundingClientRect().height)+'px'+
-    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v121';
+    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v122';
   document.body.appendChild(d);
 }
 
