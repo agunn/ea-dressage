@@ -211,6 +211,17 @@ footer button{border:0;background:none;color:var(--green);font-weight:700;paddin
   main{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
   footer{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
   #updbar{bottom:calc(92px + env(safe-area-inset-bottom))}
+  /* single-row scrollable chip rail as on phones — nine wrapped chips
+     stacked three rows deep on smaller tablets */
+  .secrow{flex-wrap:nowrap;overflow-x:auto;padding-right:30px;justify-content:flex-start;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .secrow::-webkit-scrollbar{display:none}
+  .secrow .chip{flex:none}
+  .secbreak{display:none}
+  .secrail::before,.secrail::after{content:"";position:absolute;top:0;bottom:0;width:26px;pointer-events:none;opacity:0;transition:opacity .2s;z-index:2}
+  .secrail::before{left:0;background:linear-gradient(to right,var(--paper),rgba(241,239,231,0))}
+  .secrail::after{right:0;background:linear-gradient(to left,var(--paper),rgba(241,239,231,0))}
+  .secrail.fade-l::before{opacity:1}
+  .secrail.fade-r::after{opacity:1}
 }
 @media (max-width:600px){
   /* header compact */
@@ -1023,7 +1034,7 @@ if(location.search.indexOf('debug')>-1){
     '\npointer coarse: '+matchMedia('(pointer:coarse)').matches+
     '\nphone layout (<=600) active: '+matchMedia('(max-width:600px)').matches+
     '\nheader height: '+Math.round(document.querySelector('header').getBoundingClientRect().height)+'px'+
-    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v118';
+    '\nSW controlled: '+!!(navigator.serviceWorker&&navigator.serviceWorker.controller)+'  cacheV: v119';
   document.body.appendChild(d);
 }
 
