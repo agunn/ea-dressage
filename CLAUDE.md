@@ -1,9 +1,10 @@
 # CLAUDE.md — project context for Claude Code
 
-> **Separate project:** this is `ea-dressage`, distinct from `fin-hist`. Each
-> is its own folder with its own `CLAUDE.md`; open Claude Code from this
-> folder's root (`/Volumes/web/ea-dressage` on the NAS), never a shared
-> parent. Shared, cross-project preferences belong in `~/.claude/CLAUDE.md`.
+> **Separate project:** this is `ea-dressage`, distinct from the owner's
+> other projects. Each is its own folder with its own `CLAUDE.md`; open
+> Claude Code from this folder's root (`/Volumes/web/ea-dressage` on the
+> NAS), never a shared parent. Shared, cross-project preferences belong in
+> `~/.claude/CLAUDE.md`.
 
 ## What this is
 A static, searchable reference app for Equestrian Australia (EA) dressage

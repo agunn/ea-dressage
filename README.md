@@ -11,6 +11,10 @@ documents:
 
 The app is a single static page: no backend, no build step, no logins.
 
+> **Taking this project over?** Read [HANDOVER.md](HANDOVER.md) — a complete
+> developer handover covering rehosting at a new URL, release discipline,
+> content maintenance and the hard-won service-worker gotchas.
+
 ## Repo layout
 
 ```
